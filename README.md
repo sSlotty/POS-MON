@@ -1,1 +1,5 @@
-New commit
+🎉 POS Project
+ Software 
+ - XAMPP
+ - PHPmyadmin
+
