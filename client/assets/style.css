@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap');
+
+body{
+    font-family: 'Mitr', sans-serif;
+}
+
+.scroll {
+    height: 800px;
+    overflow-y: auto;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
