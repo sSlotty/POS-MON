@@ -14,6 +14,7 @@
 
 <body>
     <h1> Hello POS</h1>
+    <h5>This is form PC</h5>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
