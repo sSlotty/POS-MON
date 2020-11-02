@@ -9,11 +9,12 @@ var shoppingCart = (function () {
     cart = [];
 
     // Constructor
-    function Item(name, price, count, id) {
+    function Item(name, price, count, id, shop) {
         this.name = name;
         this.price = price;
         this.count = count;
         this.id = id;
+        this.shop = shop;
     }
 
     // Save cart
@@ -37,7 +38,7 @@ var shoppingCart = (function () {
     var obj = {};
 
     // Add to cart
-    obj.addItemToCart = function (name, price, count, id) {
+    obj.addItemToCart = function (name, price, count, id, shop) {
         for (var item in cart) {
             if (cart[item].name === name) {
                 cart[item].count++;
@@ -45,7 +46,7 @@ var shoppingCart = (function () {
                 return;
             }
         }
-        var item = new Item(name, price, count, id);
+        var item = new Item(name, price, count, id, shop);
         cart.push(item);
         saveCart();
     }
@@ -148,7 +149,8 @@ $('.add-to-cart').click(function (event) {
     var name = $(this).data('name');
     var price = Number($(this).data('price'));
     var id = Number($(this).data('id'));
-    shoppingCart.addItemToCart(name, price, 1, id);
+    var shop = Number($(this).data('shop'));
+    shoppingCart.addItemToCart(name, price, 1, id, shop);
     displayCart();
 });
 
@@ -195,10 +197,31 @@ function displayCart() {
     $('.show-cart').html(output);
     $('.total-cart').html(shoppingCart.totalCart());
     $('.total-count').html(shoppingCart.totalCount());
-    console.log(cartArray);
+    // console.log(cartArray);
 }
 
+$('.check-out').on('click', function () {
+    var myCart = JSON.stringify({
+        cart: shoppingCart.listCart()
+    });
 
+
+$.ajax({
+    url: '../assets/php/check-out.php',
+    type: 'POST',
+        data: { myCart },
+        dataType: 'text',
+        success: function (response) {
+            // var output = JSON.parse(response);
+            alert(response);
+            // shoppingCart.clearCart();
+    displayCart();
+        },error: function (request, error) {
+            alert("AJAX Call Error: " + error);
+        }
+    });
+    
+});
 
 
 // Delete item button
