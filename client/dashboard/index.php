@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="../assets/sidebar.css">
     <link rel="stylesheet" href="../assets/style.css">
-<style>
-
-</style>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body class="fixed-sn cyan-skin">
@@ -27,7 +31,7 @@
                 <div class="col-md-8 mb-4">
                     <div data-spy="scroll" class="scroll scrollspy-example z-depth-1">
                         <div class="row row-cols-1 row-cols-md-4">
-                            <div class="col mb-3">
+                            <div class="col-md-6 col-xl-4 col-lg-4 col-6">
                                 <div class="card">
                                     <div class="view overlay">
                                         <img class="card-img-top"
@@ -46,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col mb-3">
+                            <div class="col-md-6 col-xl-4 col-lg-4 col-6">
                                 <div class="card">
                                     <div class="view overlay">
                                         <img class="card-img-top"
@@ -94,45 +98,67 @@
                         </div>
                     </div>
                 </div>
-              
+
             </div>
         </div>
     </main>
-    <!--/Main layout
+    <!--/Main layout -->
 
 
 
+    <!-- Modal: modalCart -->
+    <div class="modal  fade bd-example-modal-lg" id="modalCart" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Cart
+                    </p>
 
- <!-- Modal: modalCart -->
-<div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Your cart</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">×</span>
+                    </button>
+                </div>
 
-        <table class="table show-cart table-hover">
-    
-          
-        </table>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-lg table-striped w-100">
+                            <!--Table head-->
+                            <thead>
+                                <tr class="text-center">
+                                    <th>#ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Amount</th>
+                                    <th>รวม</th>
+                                    <th>Clear</th>
 
-      </div>
-      <!--Footer-->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary">Checkout</button>
-      </div>
+                                </tr>
+                            </thead>
+                            <!--Table head-->
+                            <!--Table body-->
+                            <tbody class="show-cart">
+
+                            </tbody>
+                            <!--Table body-->
+                        </table>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-primary waves-effect waves-light">Send
+                        <i class="fa fa-paper-plane ml-1"></i>
+                    </a>
+                    <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<!-- Modal: modalCart -->
+    <!-- Modal: modalCart -->
+
 
 
     <!-- Footer -->
