@@ -148,7 +148,7 @@ $('.add-to-cart').click(function (event) {
     var name = $(this).data('name');
     var price = Number($(this).data('price'));
     var id = Number($(this).data('id'));
-    shoppingCart.addItemToCart(name, price, 1,id);
+    shoppingCart.addItemToCart(name, price, 1, id);
     displayCart();
 });
 
@@ -165,22 +165,26 @@ function displayCart() {
     for (var i in cartArray) {
 
         output += "<tr>" +
-            "<th scope='row'>" + cartArray[i].id + "</th>" +
-            "<td>" + cartArray[i].name + "</td>" +
-            "<td>" + cartArray[i].price + "</td>" +
-            "<td><div class='input-group'>" +
-            "<button class='minus-item btn btn-sm btn-success btn-rounded waves-effect' data-name=" +
-            cartArray[i].name + ">-</button>" +
-            "<input type='number' min='0' class='item-count form-control' data-name='" + cartArray[i].name +
-            "' value='" + cartArray[i].count + "'>" +
-            "<button class='plus-item btn btn-sm btn-success btn-rounded waves-effect' data-name=" + cartArray[i].name +
-            ">+</button></div></td>" +
-            "<td><button class='delete-item btn btn-sm btn-outline-danger btn-rounded waves-effect' data-name=" + cartArray[i].name +
-            ">X</button></td>" +
-            " = " +
-            "<td>" + cartArray[i].total + "</td>" +
-            "</tr>";
-        
+            `<th scope="row" class="text-sm">#` + cartArray[i].id + `</th>` +
+            `<td>` + cartArray[i].name + `</td>` +
+            `<td>` + cartArray[i].price + `฿</td>` +
+            `<td>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="plus-item btn btn-sm btn-success m-0 px-3 mr-2" type="button" data-name="` + cartArray[i].name + `"><i
+                            class="far fa-plus"></i></button>
+                    <input type="number" class="form-control" style="width: 60px;" disabled
+                        min="0" data-name="` + cartArray[i].name + `" value="` + cartArray[i].count + `">
+                    <button class="minus-item btn btn-sm btn-warning m-0 px-3 ml-2" type="button" data-name="` + cartArray[i].name + `"><i
+                            class="fas fa-minus"></i></button>
+                </div>
+            </div>
+        </td>
+        <td>` + cartArray[i].total + `</td>
+        <td><button class="delete-item btn btn-sm btn-danger m-0 px-3 ml-2" type="button" data-name="` + cartArray[i].name + `"><i
+                    class="fad fa-trash-restore" style="font-size: 15px;"></i></button></td>
+
+    </tr>`;
         outputSimple += "<tr>" +
             "<td>" + cartArray[i].name + "</td>" +
             "<td>(" + cartArray[i].price + ")</td>" +
