@@ -14,6 +14,7 @@
     <style>
         .avatar-pic {
             width: 300px;
+            height: 200px;
         }
     </style>
 </head>

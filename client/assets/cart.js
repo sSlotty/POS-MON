@@ -164,6 +164,7 @@ function displayCart() {
     var cartArray = shoppingCart.listCart();
     var output = "";
     var outputSimple = "";
+
     for (var i in cartArray) {
 
         output += "<tr>" +
@@ -192,7 +193,9 @@ function displayCart() {
             "<td>(" + cartArray[i].price + ")</td>" +
             "<td> จำนวน : " + cartArray[i].count + "</td>" +
             "<td> Total : " + cartArray[i].total;
+
     }
+
     $('.show-cart-simple').html(outputSimple);
     $('.show-cart').html(output);
     $('.total-cart').html(shoppingCart.totalCart());
@@ -201,26 +204,32 @@ function displayCart() {
 }
 
 $('.check-out').on('click', function () {
-    var myCart = JSON.stringify({
-        cart: shoppingCart.listCart()
-    });
-
-
-$.ajax({
-    url: '../assets/php/check-out.php',
-    type: 'POST',
-        data: { myCart },
-        dataType: 'text',
-        success: function (response) {
-            // var output = JSON.parse(response);
-            alert(response);
-            // shoppingCart.clearCart();
-    displayCart();
-        },error: function (request, error) {
-            alert("AJAX Call Error: " + error);
-        }
-    });
+    var myCart = JSON.stringify(shoppingCart.listCart());
+    if (shoppingCart.listCart().length > 0) {
+        $.ajax({
+            url: '../assets/php/check-out.php',
+            type: 'POST',
+            data: {
+                myCart:myCart
+            },
+            dataType: 'json',
+            success: function (response) {
+                // var output = JSON.parse(response);
+                alert(response.name);
+                // shoppingCart.clearCart();
+                displayCart();
+            },
+            error: function (request, error) {
+                alert("AJAX Call Error: " + error);
+            }
+        });
+        
+    } else {
+        alert("กรุณาใส่สินค้าลงตะกร้า");
+    }
     
+
+
 });
 
 
