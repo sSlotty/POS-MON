@@ -1,18 +1,10 @@
-<?php
-if(!(isset($_GET['product_id']))){
-    header('location: ../../');
-}else{
-
-$product_id = $_GET['product_id'];
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product-edit</title>
+    <title>Product-add</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -33,21 +25,23 @@ $product_id = $_GET['product_id'];
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
+
             <!-- Material form contact -->
-            <h5>Product edit</h5>
+            <h5>Add Product</h5>
             <div class="card">
 
-                <h5 class="card-header warning-color white-text text-center py-4">
-                    <strong>Editing product #<?php echo $product_id; ?></strong>
+                <h5 class="card-header success-color white-text text-center py-4">
+                    <strong>Add Product</strong>
                 </h5>
 
                 <!--Card content-->
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
+                    <form class="text-center" style="color: #757575;" action="php/add.php" method="POST">
 
-                    <div class="md-form mt-3">
+                        <!-- Name -->
+                        <div class="md-form mt-3">
                             <input type="text" name="name" id="name" class="form-control" placeholder="ชื่อสินค้า"
                                 required>
                             <label for="name">Name</label>
@@ -97,10 +91,6 @@ $product_id = $_GET['product_id'];
 
 
 
-
-
-                       
-
                         <!-- Send button -->
                         <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
                             type="submit">Submit</button>
@@ -147,13 +137,6 @@ $product_id = $_GET['product_id'];
             readURL(this);
         });
     </script>
-
-
 </body>
 
 </html>
-
-<?php 
-
-}
-?>
