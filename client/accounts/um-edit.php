@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Management</title>
+    <title>Edit | Account Management</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -32,61 +32,76 @@
                         <!-- Avatar -->
                         <div class="avatar mx-auto white">
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                                class="rounded-circle" alt="woman avatar">
+                                class="avatar-pic" width="300px">
                         </div>
 
                         <!-- Content -->
                         <div class="card-body">
-                            <!-- Name -->
-                            <h4 class="card-title">Anna Doe</h4>
-                            <hr>
                             <!-- Form -->
                             <form class="text-center" style="color: #757575;" action="#!">
+                                <!-- Name -->
+                                <h4 class="card-title">Anna Doe</h4>
+
+                                <div class="md-form">
+                                    <div class="file-field pb-5 text-center">
+                                        <div class="btn btn-mdb-color btn-rounded text-center">
+                                            <span>Choose file image</span>
+                                            <input type="file" name="img" id="img"
+                                                accept="image/x-png,image/gif,image/jpeg" required>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <hr>
 
                                 <!-- Email -->
                                 <div class="md-form">
-                                    <input type="text" id="name" name="name" class="form-control" value="" disabled>
+                                    <input type="text" id="name" name="name" class="form-control" value="">
                                     <label for="name">Name</label>
                                 </div>
 
                                 <!-- Password -->
                                 <div class="md-form">
-                                    <input type="text" id="shopid" name="shopid" class="form-control" value="" disabled>
+                                    <input type="text" id="shopid" name="shopid" class="form-control" value="">
                                     <label for="shopid">Shop ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="userid" name="userid" class="form-control" value="" disabled>
+                                    <input type="text" id="userid" name="userid" class="form-control" value="">
                                     <label for="userid">User ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="shopname" name="shopname" class="form-control" value="" disabled>
+                                    <input type="text" id="shopname" name="shopname" class="form-control" value="">
                                     <label for="shopname">Shop name</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="email" id="email" name="email" class="form-control" value="" disabled>
+                                    <input type="email" id="email" name="email" class="form-control" value="">
                                     <label for="email">E-mail</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="line_notify" name="line_notify" class="form-control" value="" disabled>
+                                    <input type="text" id="line_notify" name="line_notify" class="form-control"
+                                        value="">
                                     <label for="line_notify">Line Notify</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="phone" name="phone" class="form-control" value="" disabled>
+                                    <input type="text" id="phone" name="phone" class="form-control" value="">
                                     <label for="phone">Phone</label>
                                 </div>
 
                                 <!-- Sign in button -->
-                                <a href="um-edit.php"class="btn btn-outline-warning btn-rounded btn-block my-4 waves-effect z-depth-0"
-                                    type="submit">Edit</a>
+                                <a href="um-edit.php"
+                                    class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect z-depth-0"
+                                    type="submit">Submit</a>
 
-                                
 
-                        
+
+
 
                             </form>
                             <!-- Form -->
@@ -111,6 +126,26 @@
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/sidebar.js"></script>
+
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.avatar-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#img").change(function () {
+            readURL(this);
+        });
+    </script>
+
 </body>
 
 </html>
