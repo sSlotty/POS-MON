@@ -1,3 +1,12 @@
+<?php 
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+ $sql = "SELECT * FROM members WHERE `username` LIKE '".$_SESSION['username']."'";
+ $result = $conn->query($sql);
+ $row = $result->fetch_assoc();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,35 +47,35 @@
                         <!-- Content -->
                         <div class="card-body">
                             <!-- Name -->
-                            <h4 class="card-title">Anna Doe</h4>
+                            <h4 class="card-title"><? echo $row['name'];?></h4>
                             <hr>
                             <!-- Form -->
                             <form class="text-center" style="color: #757575;" action="#!">
 
                                 <!-- Email -->
                                 <div class="md-form">
-                                    <input type="text" id="name" name="name" class="form-control" value="" disabled>
+                                    <input type="text" id="name" name="name" class="form-control" value="<? echo $row['name'];?>" disabled>
                                     <label for="name">Name</label>
                                 </div>
 
                                 <!-- Password -->
                                 <div class="md-form">
-                                    <input type="text" id="shopid" name="shopid" class="form-control" value="" disabled>
+                                    <input type="text" id="shopid" name="shopid" class="form-control" value="<? echo $row['id_shop'];?>" disabled>
                                     <label for="shopid">Shop ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="userid" name="userid" class="form-control" value="" disabled>
+                                    <input type="text" id="userid" name="userid" class="form-control" value="<? echo $row['user_id'];?>" disabled>
                                     <label for="userid">User ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="shopname" name="shopname" class="form-control" value="" disabled>
+                                    <input type="text" id="shopname" name="shopname" class="form-control" value="<? echo $row['shop_name'];?>" disabled>
                                     <label for="shopname">Shop name</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="email" id="email" name="email" class="form-control" value="" disabled>
+                                    <input type="email" id="email" name="email" class="form-control" value="<? echo $row['email'];?>" disabled>
                                     <label for="email">E-mail</label>
                                 </div>
 

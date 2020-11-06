@@ -1,3 +1,9 @@
+<?php 
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,6 +59,12 @@
                             <input type="number" min="0" name="price" id="price" class="form-control" placeholder="ราคา"
                                 required>
                             <label for="price">Price</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="number" min="0" name="amount" id="amount" class="form-control" placeholder="จำนวนสินค้า"
+                                required>
+                            <label for="price">amount</label>
                         </div>
 
                         <!-- E-mail -->

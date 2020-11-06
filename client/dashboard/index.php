@@ -1,3 +1,7 @@
+<?php 
+ include_once('../../connect.php');
+require_once('../authen.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +58,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Name</h4>
+                                        <h4 class="card-title">Lemon</h4>
                                         <p class="card-text"> Price : ฿</p>
                                         <a href="#" data-name="Lemon" data-price="5" data-id="1234"
                                             data-shop="12345678910"
