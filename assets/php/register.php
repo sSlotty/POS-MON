@@ -28,9 +28,17 @@
                             '".$username."',
                             '".$hashed_password."',
                             '".$email."');";
-            
+
                     $result = $conn->query($sql_create) or die($conn->error);
-    
+                    
+                    // $folder_img = 'pos/client/assets/images/'.$user_id;
+
+                    // if (!file_exists($folder_img)) {
+                    //     mkdir($folder_img, 0777, true);
+                    //     chmod($folder_img, 0777);
+
+                    // }
+
                     if($result){
                         echo json_encode(["status"=>true,"message"=>"สมัครสำเร็จ !"]);
         
