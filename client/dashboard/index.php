@@ -1,3 +1,7 @@
+<?php 
+ include_once('../../connect.php');
+require_once('../authen.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +47,7 @@
                     <div data-spy="scroll" class="scroll scrollspy-example z-depth-1">
                         <div class="row row-cols-1 row-cols-md-4">
 
-                            <div class="col-md-6 col-xl-4 col-lg-4 col-6">
+                            <div class="col-md-6 col-xl-4 col-lg-4 col-6 mt-3">
                                 <div class="card">
                                     <div class="view overlay">
                                         <img class="card-img-top product-img"
@@ -54,7 +58,7 @@
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h4 class="card-title">Name</h4>
+                                        <h4 class="card-title">Lemon</h4>
                                         <p class="card-text"> Price : ฿</p>
                                         <a href="#" data-name="Lemon" data-price="5" data-id="1234"
                                             data-shop="12345678910"
@@ -64,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 col-xl-4 col-lg-4 col-6">
+                            <div class="col-md-6 col-xl-4 col-lg-4 col-6 mt-3">
                                 <div class="card">
                                     <div class="view overlay">
                                         <img class="card-img-top product-img"
@@ -85,7 +89,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 col-xl-4 col-lg-4 col-6">
+                            <div class="col-md-6 col-xl-4 col-lg-4 col-6 mt-3">
                                 <div class="card">
                                     <div class="view overlay">
                                         <img class="card-img-top product-img"

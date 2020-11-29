@@ -1,3 +1,8 @@
+<?php 
+ include_once('../../connect.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

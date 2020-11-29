@@ -1,3 +1,9 @@
+<?php 
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +45,7 @@
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="php/add.php" method="POST">
+                    <form class="text-center" style="color: #757575;" action="php/add.php" method="POST" enctype="multipart/form-data">
 
                         <!-- Name -->
                         <div class="md-form mt-3">
@@ -53,6 +59,12 @@
                             <input type="number" min="0" name="price" id="price" class="form-control" placeholder="ราคา"
                                 required>
                             <label for="price">Price</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="number" min="0" name="amount" id="amount" class="form-control" placeholder="จำนวนสินค้า"
+                                required>
+                            <label for="price">amount</label>
                         </div>
 
                         <!-- E-mail -->
@@ -69,7 +81,7 @@
                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                             <div class="btn btn-mdb-color btn-rounded float-left">
                                                 <span>Choose file image</span>
-                                                <input type="file" name="img" id="img"
+                                                <input type="file" name="image" id="image"
                                                     accept="image/x-png,image/gif,image/jpeg" required>
                                             </div>
                                         </div>
@@ -89,9 +101,6 @@
 
                             </div>
                         </div>
-
-
-
                         <!-- Send button -->
                         <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
                             type="submit">Submit</button>
@@ -134,7 +143,7 @@
             }
         }
 
-        $("#img").change(function () {
+        $("#image").change(function () {
             readURL(this);
         });
     </script>

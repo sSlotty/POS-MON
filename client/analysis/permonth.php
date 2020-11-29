@@ -1,3 +1,10 @@
+
+<?php 
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
