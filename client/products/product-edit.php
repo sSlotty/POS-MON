@@ -1,4 +1,8 @@
 <?php
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+
 if(!(isset($_GET['product_id']))){
     header('location: ../../');
 }else{

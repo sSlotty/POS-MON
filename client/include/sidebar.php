@@ -76,7 +76,7 @@
                         class="clearfix d-none d-sm-inline-block">Account</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link"><i class="fad fa-sign-out-alt"></i> <span
+                <a class="nav-link" href="../../logout.php"><i class="fad fa-sign-out-alt"></i> <span
                         class="clearfix d-none d-sm-inline-block">Logout</span></a>
             </li>
         </ul>
