@@ -67,39 +67,39 @@
 
                                 <!-- Email -->
                                 <div class="md-form">
-                                    <input type="text" id="name" name="name" class="form-control" value="<? echo $row['name'];?>">
+                                    <input type="text" id="name" name="name" class="form-control" value="<?php echo $row['name'];?>">
                                     <label for="name">Name</label>
                                 </div>
 
                                 <!-- Password -->
                                 <div class="md-form">
-                                    <input type="text" id="shopid" name="shopid" class="form-control" value="<? echo $row['id_shop'];?>" disabled>
+                                    <input type="text" id="shopid" name="shopid" class="form-control" value="<?php echo $row['id_shop'];?>" disabled>
                                     <label for="shopid">Shop ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="userid" name="userid" class="form-control" value="<? echo $row['user_id'];?>" disabled>
+                                    <input type="text" id="userid" name="userid" class="form-control" value="<?php echo $row['user_id'];?>" disabled>
                                     <label for="userid">User ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="shopname" name="shopname" class="form-control" value="<? echo $row['shop_name'];?>">
+                                    <input type="text" id="shopname" name="shopname" class="form-control" value="<?php echo $row['shop_name'];?>">
                                     <label for="shopname">Shop name</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="email" id="email" name="email" class="form-control" value="<? echo $row['email'];?>">
+                                    <input type="email" id="email" name="email" class="form-control" value="<?php echo $row['email'];?>">
                                     <label for="email">E-mail</label>
                                 </div>
 
                                 <div class="md-form">
                                     <input type="text" id="line_notify" name="line_notify" class="form-control"
-                                        value="<? echo $row['line_notify'];?>">
+                                        value="<?php echo $row['line_notify'];?>">
                                     <label for="line_notify">Line Notify</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="phone" name="phone" class="form-control" value="<? echo $row['phone'];?>">
+                                    <input type="text" id="phone" name="phone" class="form-control" value="<?php echo $row['phone'];?>">
                                     <label for="phone">Phone</label>
                                 </div>
 
