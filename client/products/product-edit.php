@@ -21,8 +21,8 @@ $product_id = $_GET['product_id'];
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="../assets/sidebar.css">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         .avatar-pic {
             width: 300px;
@@ -132,7 +132,7 @@ $product_id = $_GET['product_id'];
     <script src="../../node_modules/MDB-Pro/js/mdb.min.js"></script>
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
-    <script src="../assets/sidebar.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
 
 
     <script>
