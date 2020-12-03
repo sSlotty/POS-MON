@@ -8,6 +8,10 @@ if(!(isset($_GET['product_id']))){
 }else{
 
 $product_id = $_GET['product_id'];
+$shop_id = $_SESSION['ShopID'];
+$sql = "SELECT * FROM `products` WHERE `id_shop` LIKE '".$shop_id."' AND `product_id` LIKE '".$product_id."'";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
 
 ?>
 <!DOCTYPE html>
@@ -43,33 +47,47 @@ $product_id = $_GET['product_id'];
             <div class="card">
 
                 <h5 class="card-header warning-color white-text text-center py-4">
-                    <strong>Editing product #<?php echo $product_id; ?></strong>
+                    <strong>Edit product #<?php echo $product_id; ?></strong>
+
                 </h5>
 
                 <!--Card content-->
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
+                    <form id="form-edit" class="text-center" style="color: #757575;" action="#!">
 
-                    <div class="md-form mt-3">
+                        <div class="md-form mt-3">
                             <input type="text" name="name" id="name" class="form-control" placeholder="ชื่อสินค้า"
-                                required>
+                                value="<?php echo $row['product_name'];?>" required>
                             <label for="name">Name</label>
                         </div>
 
                         <!-- E-mail -->
                         <div class="md-form">
                             <input type="number" min="0" name="price" id="price" class="form-control" placeholder="ราคา"
-                                required>
+                                value="<?php echo $row['product_price'];?>" required>
                             <label for="price">Price</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="number" min="0" name="amount" id="amount" class="form-control"
+                                placeholder="จำนวนสินค้า" value="<?php echo $row['product_amount'];?>" required>
+                            <label for="price">amount</label>
                         </div>
 
                         <!-- E-mail -->
                         <div class="md-form">
                             <input type="text" id="type" name="type" class="form-control"
-                                placeholder="กรุณากรอก : ขนม, ของแห้ง, เครื่องดื่ม" required>
+                                placeholder="กรุณากรอก : ขนม, ของแห้ง, เครื่องดื่ม"
+                                value="<?php echo $row['product_type'];?>" required>
                             <label for="type">Type</label></label>
+                        </div>
+
+                        <!-- Products ID -->
+                        <div class="md-form">
+                            <input type="hidden" id="product_id" name="product_id" class="form-control"
+                                value="<?php echo $product_id;?>" required>
                         </div>
 
                         <div class="md-form">
@@ -79,14 +97,14 @@ $product_id = $_GET['product_id'];
                                         <div class="col-xl-6 col-md-6 col-sm-12">
                                             <div class="btn btn-mdb-color btn-rounded float-left">
                                                 <span>Choose file image</span>
-                                                <input type="file" name="img" id="img"
-                                                    accept="image/x-png,image/gif,image/jpeg" required>
+                                                <input type="file" name="image" id="image"
+                                                    accept="image/x-png,image/gif,image/jpeg">
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-sm-12">
 
                                             <div class="view overlay zoom ">
-                                                <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
+                                                <img src="<?php echo "../assets/images/".$row['product_image'];?>"
                                                     class="z-depth-1-half avatar-pic " alt="example placeholder avatar"
                                                     width="50">
 
@@ -99,12 +117,6 @@ $product_id = $_GET['product_id'];
 
                             </div>
                         </div>
-
-
-
-
-
-                       
 
                         <!-- Send button -->
                         <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
@@ -132,10 +144,14 @@ $product_id = $_GET['product_id'];
     <script src="../../node_modules/MDB-Pro/js/mdb.min.js"></script>
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/formdata.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.min.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="js/edit.js"></script>
 
     <script>
+        
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -148,7 +164,7 @@ $product_id = $_GET['product_id'];
             }
         }
 
-        $("#img").change(function () {
+        $("#image").change(function () {
             readURL(this);
         });
     </script>

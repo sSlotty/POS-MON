@@ -2,9 +2,6 @@
 include_once('../../../connect.php');
 header("Content-type: application/json; charset=utf-8"); 
 
-// print_r($_POST);
- // print_r($_FILES['image']['name']);
-
 $products_id = rand(0,99999999) *999999;
 
 $shop_id = $_SESSION['ShopID'];
@@ -29,7 +26,7 @@ if(move_uploaded_file($_FILES['image']['tmp_name'],$url_upload)){
         echo json_encode(["status"=>false,"message"=>"เพิ่มสินค้าไม่สำเร็จ !"]);
     }
 }else{
-    echo json_encode(["status"=>true,"message"=>"กรุณาลองใหม่อีกครั้ง !"]);
+    echo json_encode(["status"=>false,"message"=>"กรุณาลองใหม่อีกครั้ง !"]);
 }
 
 

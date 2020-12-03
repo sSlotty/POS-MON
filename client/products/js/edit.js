@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#form-add").submit(function (event) {
+    $("#form-edit").submit(function (event) {
         event.preventDefault();
         // var form_data = $(this).serialize();
 
@@ -9,15 +9,21 @@ $(document).ready(function () {
         allForm.append('name', $('#name').val());
         allForm.append('price', $('#price').val());
         allForm.append('amount', $('#amount').val());
-        allForm.append('type', $('#type').val());
-        
-        allForm.append('image', $('#image').get(0).files[0]);
+        allForm.append('product_id', $('#product_id').val());
 
- 
+        allForm.append('type', $('#type').val());
+
+        var checkFile = $('#image').val();
+        console.log(checkFile);
+        if (checkFile == '') {
+
+        } else {
+            allForm.append('image', $('#image').get(0).files[0]);
+        }
 
         $.ajax({
             type: 'POST',
-            url: 'php/add.php',
+            url: 'php/edit.php',
             data: allForm,
             dataType: 'json',
             mimeType: 'multipart/form-data',

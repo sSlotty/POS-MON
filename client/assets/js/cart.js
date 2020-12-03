@@ -9,12 +9,13 @@ var shoppingCart = (function () {
     cart = [];
 
     // Constructor
-    function Item(name, price, count, id, shop) {
+    function Item(name, price, count, id, shop, amount) {
         this.name = name;
         this.price = price;
         this.count = count;
         this.id = id;
         this.shop = shop;
+        this.amount = amount;
     }
 
     // Save cart
@@ -38,7 +39,7 @@ var shoppingCart = (function () {
     var obj = {};
 
     // Add to cart
-    obj.addItemToCart = function (name, price, count, id, shop) {
+    obj.addItemToCart = function (name, price, count, id, shop, amount) {
         for (var item in cart) {
             if (cart[item].name === name) {
                 cart[item].count++;
@@ -46,7 +47,7 @@ var shoppingCart = (function () {
                 return;
             }
         }
-        var item = new Item(name, price, count, id, shop);
+        var item = new Item(name, price, count, id, shop, amount);
         cart.push(item);
         saveCart();
     }
@@ -150,7 +151,8 @@ $('.add-to-cart').click(function (event) {
     var price = Number($(this).data('price'));
     var id = Number($(this).data('id'));
     var shop = Number($(this).data('shop'));
-    shoppingCart.addItemToCart(name, price, 1, id, shop);
+    var amount = Number($(this).data('amount'));
+    shoppingCart.addItemToCart(name, price, 1, id, shop, amount);
     displayCart();
 });
 
@@ -166,6 +168,7 @@ function displayCart() {
     var outputSimple = "";
 
     for (var i in cartArray) {
+
 
         output += "<tr>" +
             `<th scope="row" class="text-sm">#` + cartArray[i].id + `</th>` +
@@ -193,14 +196,16 @@ function displayCart() {
             "<td> (ราคา " + cartArray[i].price + " / ชิ้น)</td>" +
             "<td> จำนวน : " + cartArray[i].count + "</td>" +
             "<td> Total : " + cartArray[i].total;
+        console.log(cartArray)
 
     }
+
 
     $('.show-cart-simple').html(outputSimple);
     $('.show-cart').html(output);
     $('.total-cart').html(shoppingCart.totalCart());
     $('.total-count').html(shoppingCart.totalCount());
-    // console.log(cartArray);
+    
 }
 
 $('.check-out').on('click', function () {
@@ -209,25 +214,44 @@ $('.check-out').on('click', function () {
         $.ajax({
             url: '../assets/php/check-out.php',
             type: 'POST',
-            data: {
-                myCart:myCart
-            },
+            data: {cart:myCart},
             dataType: 'json',
             success: function (response) {
-                // var output = JSON.parse(response);
-                alert(response.name);
-                // shoppingCart.clearCart();
-                displayCart();
+                if (response.status) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'ชำระเงินสำเร็จ',
+                        text: response.message,
+                        footer: '<a href>Why do I have this issue?</a>'
+                      }).then(function () {
+                        shoppingCart.clearCart();
+                          displayCart();
+                          location.reload();
+                    })
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'ชำระเงินไม่สำเร็จ',
+                        text: response.message,
+                        footer: '<a href>Why do I have this issue?</a>'
+                    });
+                }
             },
             error: function (request, error) {
                 alert("AJAX Call Error: " + error);
             }
+
+            
         });
-        
+
     } else {
-        alert("กรุณาใส่สินค้าลงตะกร้า");
+        Swal.fire(
+            'Warning !',
+            'กรุณาใส่สินค้าลงตระกร้า',
+            'warning'
+        )
     }
-    
+
 
 
 });
