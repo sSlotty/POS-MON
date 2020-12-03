@@ -26,6 +26,9 @@
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $row['role'];
             $_SESSION['UserID'] = $row['user_id'];
+            $_SESSION['ShopID'] = $row['shop_id'];
+            $_SESSION['verify'] = $row['verify'];
+            $_SESSION['email'] = $row['email'];
 
             // $cookie_value = $username;
             // setcookie('UserID', $cookie_value, time() + (86400 * 30), "/");

@@ -190,7 +190,7 @@ function displayCart() {
     </tr>`;
         outputSimple += "<tr>" +
             "<td>" + cartArray[i].name + "</td>" +
-            "<td>(" + cartArray[i].price + ")</td>" +
+            "<td> (ราคา " + cartArray[i].price + " / ชิ้น)</td>" +
             "<td> จำนวน : " + cartArray[i].count + "</td>" +
             "<td> Total : " + cartArray[i].total;
 

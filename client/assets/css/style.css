@@ -2,6 +2,14 @@
 
 body{
     font-family: 'Mitr', sans-serif;
+    background-color: whitesmoke;
+}
+
+.top-up {
+    height: 50px;
+    overflow: hidden;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
 }
 
 .scroll {
