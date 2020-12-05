@@ -113,14 +113,11 @@ $shop_id = $_SESSION['ShopID'];
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php }?>
                                 <?php }?>
 
 
 
                             </div>
-                            <?php }?>
 
                         </div>
                     </div>
