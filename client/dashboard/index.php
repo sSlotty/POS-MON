@@ -137,20 +137,20 @@ $shop_id = $_SESSION['ShopID'];
                             <button type="button" class="clear-cart btn btn-sm btn-danger"><i
                                     class="fad fa-trash-alt"></i> </i>Clear cart</button>
 
-                        </div>
-                        <div class="table-responsive">
-                            <table class="show-cart-simple table ">
+                            </div>
+                            <div class="table-responsive">
+                                <table class="show-cart-simple table ">
 
-                            </table>
+                                </table>
 
-                        </div>
+                            </div>
 
                         <div>Total price: </div>
 
+                        </div>
                     </div>
-
                 </div>
-
+              
             </div>
         </div>
     </main>
@@ -209,8 +209,9 @@ $shop_id = $_SESSION['ShopID'];
             </div>
         </div>
     </div>
-    <!-- Modal: modalPoll -->
-
+  </div>
+</div>
+<!-- Modal: modalCart -->
 
 
     <!-- Footer -->

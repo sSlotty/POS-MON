@@ -1,5 +1,5 @@
 🎉 POS Project
- Software 
- - XAMPP
- - PHPmyadmin
+ <h2> Software </h2>
+  - XAMPP
+  - PHPmyadmin
 
