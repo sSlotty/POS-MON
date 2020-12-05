@@ -18,9 +18,15 @@
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="../assets/sidebar.css">
-    <link rel="stylesheet" href="../assets/style.css">
-
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+    </style>
 </head>
 
 <body class="fixed-sn cyan-skin">
@@ -34,68 +40,39 @@
                 <div class="col-md-12">
                     <!-- Card -->
                     <div class="card testimonial-card">
+                        <!-- <?php print_r($row); ?> -->
 
                         <!-- Background color -->
-                        <div class="card-up indigo lighten-1"></div>
+                        <div class="top-up indigo lighten-1"></div>
 
-                        <!-- Avatar -->
-                        <div class="avatar mx-auto white">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg"
-                                class="avatar-pic" width="300px">
-                        </div>
+
+
 
                         <!-- Content -->
                         <div class="card-body">
+                            <!-- Name -->
+
                             <!-- Form -->
-                            <form class="text-center" style="color: #757575;" action="#!">
-                                <!-- Name -->
-                                <h4 class="card-title"><? echo $row['name'];?></h4>
-
-                                <div class="md-form">
-                                    <div class="file-field pb-5 text-center">
-                                        <div class="btn btn-mdb-color btn-rounded text-center">
-                                            <span>Choose file image</span>
-                                            <input type="file" name="img" id="img"
-                                                accept="image/x-png,image/gif,image/jpeg" required>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
+                            <form action="" id="form-edit">
+                                <h5 class="text-left">ข้อมูลผู้ขาย</h5>
                                 <hr>
-
                                 <!-- Email -->
                                 <div class="md-form">
-                                    <input type="text" id="name" name="name" class="form-control" value="<?php echo $row['name'];?>">
+                                    <input type="text" id="name" name="name" class="form-control"
+                                        value="<?php echo $row['name'];?>" requried>
                                     <label for="name">Name</label>
                                 </div>
 
-                                <!-- Password -->
                                 <div class="md-form">
-                                    <input type="text" id="shopid" name="shopid" class="form-control" value="<?php echo $row['id_shop'];?>" disabled>
-                                    <label for="shopid">Shop ID</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <input type="text" id="userid" name="userid" class="form-control" value="<?php echo $row['user_id'];?>" disabled>
+                                    <input type="text" id="userid" name="userid" class="form-control"
+                                        value="<?php echo $row['user_id'];?>" disabled requried>
                                     <label for="userid">User ID</label>
                                 </div>
 
                                 <div class="md-form">
-                                    <input type="text" id="shopname" name="shopname" class="form-control" value="<?php echo $row['shop_name'];?>">
-                                    <label for="shopname">Shop name</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <input type="email" id="email" name="email" class="form-control" value="<?php echo $row['email'];?>">
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        value="<?php echo $row['email'];?>" disabled>
                                     <label for="email">E-mail</label>
-                                </div>
-
-                                <div class="md-form">
-                                    <input type="text" id="line_notify" name="line_notify" class="form-control"
-                                        value="<?php echo $row['line_notify'];?>">
-                                    <label for="line_notify">Line Notify</label>
                                 </div>
 
                                 <div class="md-form">
@@ -103,13 +80,40 @@
                                     <label for="phone">Phone</label>
                                 </div>
 
+                                <div class="md-form">
+                                    <input type="text" id="line_notify" name="line_notify" class="form-control"
+                                        value="<?php echo $row['line_notify'];?>">
+                                    <label for="line_notify">Line Notify</label>
+                                </div>
+                                <br>
+                                <br>
+                                <h5 class="text-left">ข้อมูลร้านค้า</h5>
+                                <hr>
+
+                                <!-- Password -->
+                                <div class="md-form">
+                                    <input type="text" id="shopid" name="shopid" class="form-control"
+                                        value="<?php echo $row['shop_id'];?>" disabled>
+                                    <label for="shopid">Shop ID</label>
+                                </div>
+
+
+
+                                <div class="md-form">
+                                    <input type="text" id="shopname" name="shopname" class="form-control"
+                                        value="<?php echo $row['shop_name'];?>">
+                                    <label for="shopname" requried>Shop name</label>
+                                </div>
+
+                                <div class="md-form">
+                                    <input type="text" id="address" name="address" class="form-control"
+                                        value="<?php echo $row['address'];?>" requried>
+                                    <label for="address">Address</label>
+                                </div>
                                 <!-- Sign in button -->
-                                <a href="um-edit.php"
+                                <button
                                     class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect z-depth-0"
-                                    type="submit">Submit</a>
-
-
-
+                                    type="submit">Submit </button>
 
 
                             </form>
@@ -134,24 +138,43 @@
     <script src="../../node_modules/MDB-Pro/js/mdb.min.js"></script>
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
-    <script src="../assets/sidebar.js"></script>
-
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+        $(document).ready(function () {
 
-                reader.onload = function (e) {
-                    $('.avatar-pic').attr('src', e.target.result);
-                }
+            $("#form-edit").submit(function (event) {
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                console.log(form_data);
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/edit.php',
+                    data: form_data,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.status) {
+                            Swal.fire(
+                                'Success!',
+                                data.message,
+                                'success'
+                            ).then(function () {
+                                window.location.href = 'index.php';
+                            });
+                        } else {
+                            Swal.fire(
+                                'Warning!',
+                                data.message,
+                                'warning'
+                            ).then(function () {
+                                window.location.href = 'index.php';
+                            });
+                        }
+                    }
 
-                reader.readAsDataURL(input.files[0]); // convert to base64 string
-            }
-        }
-
-        $("#img").change(function () {
-            readURL(this);
+                });
+            });
         });
     </script>
 

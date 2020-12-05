@@ -10,6 +10,8 @@
     //เชื่อมต่อ Database
     $conn = new mysqli('oatwant.com','thanathi_pos','Cp251POS','thanathi_pos');
 
+    // $conn = new mysqli('localhost','thanathi_pos','Cp251POS','thanathi_pos');
+
     // $conn = new mysqli('localhost','root','','cp251db');
 
     $conn->set_charset('utf8');
