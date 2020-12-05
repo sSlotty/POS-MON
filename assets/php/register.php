@@ -1,11 +1,14 @@
 <?php 
     require_once('../../connect.php');
+
+
     header("Content-type: application/json; charset=utf-8"); 
 
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $user_id = rand(0,99999999) * 999999;
+        
 
         $sql_username = "SELECT * FROM `members` WHERE `username` LIKE '".$username."' ";
         $sql_check = $conn->query($sql_username) or die($conn->error);
@@ -28,16 +31,9 @@
                             '".$username."',
                             '".$hashed_password."',
                             '".$email."');";
-
+                    
                     $result = $conn->query($sql_create) or die($conn->error);
                     
-                    // $folder_img = 'pos/client/assets/images/'.$user_id;
-
-                    // if (!file_exists($folder_img)) {
-                    //     mkdir($folder_img, 0777, true);
-                    //     chmod($folder_img, 0777);
-
-                    // }
 
                     if($result){
                         echo json_encode(["status"=>true,"message"=>"สมัครสำเร็จ !"]);

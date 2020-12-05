@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="../assets/sidebar.css">
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         .avatar-pic {
             width: 300px;
@@ -31,10 +31,10 @@
     <?php require_once('../include/sidebar.php'); ?>
     <!--Main layout-->
     <main>
-        <div class="container-fluid mb-5">
+        <div class="container-fluid mb-5 mt-5">
 
             <!-- Material form contact -->
-            <h5>Add Product</h5>
+
             <div class="card">
 
                 <h5 class="card-header success-color white-text text-center py-4">
@@ -45,7 +45,8 @@
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="php/add.php" method="POST" enctype="multipart/form-data">
+                    <form class="text-center" id="form-add" style="color: #757575;" action="php/add.php" method="POST"
+                        enctype="multipart/form-data">
 
                         <!-- Name -->
                         <div class="md-form mt-3">
@@ -62,8 +63,8 @@
                         </div>
 
                         <div class="md-form">
-                            <input type="number" min="0" name="amount" id="amount" class="form-control" placeholder="จำนวนสินค้า"
-                                required>
+                            <input type="number" min="0" name="amount" id="amount" class="form-control"
+                                placeholder="จำนวนสินค้า" required>
                             <label for="price">amount</label>
                         </div>
 
@@ -117,7 +118,9 @@
     <!--/Main layout-->
 
     <!-- Footer -->
-    <?php require_once('../include/footer.php');?>
+    <div style="margin-top:110px;">
+        <?php require_once('../include/footer.php');?>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -127,7 +130,13 @@
     <script src="../../node_modules/MDB-Pro/js/mdb.min.js"></script>
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
-    <script src="../assets/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/formdata.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.min.js"></script>
+
+    <script src="js/add.js"></script>
+
 
 
     <script>

@@ -24,7 +24,7 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/MDB-Pro/js/mdb.min.js"></script>
     <script src="node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
-
+    <!-- <script src="assets/js/block-console.js"></script> -->
 
 </body>
 
