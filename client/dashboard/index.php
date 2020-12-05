@@ -32,6 +32,30 @@ $shop_id = $_SESSION['ShopID'];
             width: 300px;
             height: 200px;
         }
+
+        .hide {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hide > * {
+            flex: 0 0 25%;
+            font-size: 2em;
+            text-align: center;
+            padding: 1em 0;
+            margin: 0.2em;
+            background-color: #ccc;
+            border-radius: 0.5em;
+            user-select: none;
+        }
+
+        .hide-item {
+            background-color: #f66;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -41,6 +65,19 @@ $shop_id = $_SESSION['ShopID'];
     <?php require_once('../include/sidebar.php'); ?>
     <!--Main layout-->
     <main>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="com-md-12 pl-4">
+                    <!-- Material input -->
+                    <div class="md-form">
+                        <input type="search" aria-label="Search" id="search" class="form-control">
+                        <label for="form1">Search</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container-fluid mb-5">
             <div class="row">
                 <div class="col-md-8 mb-4">
@@ -50,32 +87,40 @@ $shop_id = $_SESSION['ShopID'];
                         </div>
                     </div>
                     <div data-spy="scroll" class="scroll scrollspy-example z-depth-1">
-                        <div class="row row-cols-1 row-cols-md-4">
-                            <?php while($row = $result->fetch_array()){?>
-                            <div class="col-md-6 col-xl-4 col-lg-4 col-6 mt-3">
-                                <div class="card">
-                                    <div class="view overlay">
-                                        <img class="card-img-top product-img"
-                                            src="<?php echo "../assets/images/".$row['product_image'];?>"
-                                            alt="Card image cap">
-                                        <a href="#!">
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><?php echo $row['product_name'];?></h4>
-                                        <p class="card-text"> Price : <?php echo $row['product_price'];?> ฿</p>
-                                        <p class="card-text"> Amount : <?php echo $row['product_amount'];?> ชิ้น</p>
-                                        <a href="#" data-name="<?php echo $row['product_name'];?>"data-amount="<?php echo $row['product_amount'];?>" data-price="<?php echo $row['product_price'];?>" data-id="<?php echo $row['product_id'];?>"
-                                            data-shop="12345678910"
-                                            class="add-to-cart btn btn-sm btn-success btn-rounded">Add to cart</a>
+                        <div class="card-deck">
+                            <div class="row row-cols-1 row-cols-md-4" id="item">
+                                <?php while($row = $result->fetch_array()){?>
+                                <div class="col-md-6 col-xl-4 col-lg-4 col-6 mt-3">
+                                    <div class="card">
+                                        <div class="view overlay">
+                                            <img class="card-img-top product-img"
+                                                src="<?php echo "../assets/images/".$row['product_image'];?>"
+                                                alt="Card image cap">
+                                            <a href="#!">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title name"><?php echo $row['product_name'];?></h4>
+                                            <p class="card-text"> Price : <?php echo $row['product_price'];?> ฿</p>
+                                            <p class="card-text"> Amount : <?php echo $row['product_amount'];?> ชิ้น</p>
+                                            <a href="#" data-name="<?php echo $row['product_name'];?>"
+                                                data-amount="<?php echo $row['product_amount'];?>"
+                                                data-price="<?php echo $row['product_price'];?>"
+                                                data-id="<?php echo $row['product_id'];?>" data-shop="12345678910"
+                                                class="add-to-cart btn btn-sm btn-success btn-rounded">Add to cart</a>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <?php }?>
+                                <?php }?>
 
 
+
+                            </div>
+                            <?php }?>
 
                         </div>
                     </div>
@@ -185,8 +230,31 @@ $shop_id = $_SESSION['ShopID'];
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="../assets/js/cart.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#search').keyup(function () {
+                $('.card').removeClass('d-none');
+                var filter = $(this).val(); // get
+                console.log(filter);
+                //  the value of the input, which we filter on
+                $('.card-deck').find('.card .card-body h4:not(:contains("' + filter + '"))').parent()
+                    .parent().hide();;
+            })
+        })
+        // $(document).ready(function () {
+        //     $('#search').on('keyup', function () {
+        //         // console.log(filter);
+        //         //$('.card').show();
+        //         var filter = $(this).val(); // get the value of the input, which we filter on
+        //         console.log(filter);
+        //         $('.container').find(".card-title:not(:contains(" + filter + "))").parent().css(
+        //             'display', 'none');
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
