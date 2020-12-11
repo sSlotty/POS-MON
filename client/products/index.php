@@ -3,9 +3,23 @@
  require_once('../authen.php');
 
  $shop_id = $_SESSION['ShopID'];
- $sql = "SELECT * FROM products WHERE id_shop = '".$shop_id."' ";
+ $sql = "SELECT * FROM products WHERE id_shop = '".$shop_id."'";
 
  $result = mysqli_query($conn,$sql);
+
+ function DateThai($strDate){
+     $strYear = date("Y",strtotime($strDate)) + 543;
+     $strMonth= date("n",strtotime($strDate));
+     $strDay= date("j",strtotime($strDate));
+     $strHour= date("H",strtotime($strDate));
+     $strMinute= date("i",strtotime($strDate));
+     $strSeconds= date("s",strtotime($strDate));
+     $strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+     $strMonthThai=$strMonthCut[$strMonth];
+     
+     return "$strDay $strMonthThai $strYear "."เวลา"." $strHour:$strMinute";
+ }
+
 
 ?>
 <!DOCTYPE html>
@@ -14,14 +28,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Product Manager | Product List</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.css" />
+
     <style>
         table.dataTable thead .sorting:after,
         table.dataTable thead .sorting:before,
@@ -47,6 +63,15 @@
             text-align: center;
         }
 
+        .switch label input[type="checkbox"]:checked+.lever {
+            background-color: #a5d6a7;
+        }
+
+        .switch label input[type="checkbox"]:checked+.lever:after {
+            left: 1.5rem;
+            background-color: rgba(76, 175, 80, 0.7);
+        }
+
         @media only screen and (max-width: 767px) {
 
             .dataTables_filter,
@@ -66,13 +91,12 @@
         <div class="container-fluid mb-5">
             <a type="button" href="product-add.php" class="btn btn-sm btn-success btn-rounded">add product</a>
 
-            <h5>Product mangeger</h5>
+            <h5>Product List</h5>
             <div class="table-responsive-lg">
-                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0"
-                    width="100%">
+                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th scope="col" class="th-sm">id
+                            <th scope="col" class="th-sm">#
                             </th>
                             <th scope="col" class="th-sm">image
                             </th>
@@ -86,21 +110,29 @@
                             </th>
                             <th scope="col" class="th-sm">status
                             </th>
+                            <!-- <th scope="col" class="th-sm">created
+                            </th> -->
                             <th scope="col" class="th-sm">Edit
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
+                        
+                        
+                        ?>
+                        <?php 
+                        $i = 0;
                         while($row = mysqli_fetch_array($result)){
+                            $i++;
                         ?>
                         <tr>
-                            <td scpre="row">#<?php echo $row['product_id'];?></td>
-                            <td class="text-center"><img width="100"
+                            <td scpre="row"><?php echo $i;?></td>
+                            <td class="text-center img-fluid shadow-2-strong"><img width="100"
                                     src="<?php echo "../assets/images/".$row['product_image'];?>" class="rounded"
                                     alt="..."></td>
                             <td><?php echo $row['product_name'];?></td>
-                            <td><?php echo $row['product_amount'];?></td>
+                            <td style="<?php echo $row['product_amount'] <= 0 ? 'color: red;':''; ?>"><?php echo $row['product_amount'];?></td>
                             <td><?php echo $row['product_price'];?></td>
                             <td><?php echo $row['product_type'];?></td>
                             <td>
@@ -118,6 +150,8 @@
                                     </label>
                                 </div>
                             </td>
+                            <!-- <td><?php echo DateThai($row['created_at']);?></td> -->
+
                             <td>
                                 <div class="btn-group btn-group-sm mt-1" role="group" aria-label="Basic example">
                                     <a href="product-edit.php?product_id=<?php echo $row['product_id'];?>" type="button"
@@ -128,12 +162,14 @@
                             </td>
 
                         </tr>
-                        <?php }?>
+                        <?php }
+                        
+                        ?>
 
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th scope="col" class="th-sm">id
+                            <th scope="col" class="th-sm">#
                             </th>
                             <th scope="col" class="th-sm">image
                             </th>
@@ -147,6 +183,8 @@
                             </th>
                             <th scope="col" class="th-sm">status
                             </th>
+                            <!-- <th scope="col" class="th-sm">created
+                            </th> -->
                             <th scope="col" class="th-sm">Edit
                             </th>
                         </tr>
@@ -169,11 +207,11 @@
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/allJs.js"></script>
 
-    
+
 </body>
 
 </html>

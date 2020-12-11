@@ -10,13 +10,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product-add</title>
+    <title>Product Manager | Add Product</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@8.0.1/dist/css/autoComplete.min.css">
+
     <style>
         .avatar-pic {
             width: 300px;
@@ -45,7 +48,7 @@
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
-                    <form class="text-center" id="form-add" style="color: #757575;" action="php/add.php" method="POST"
+                    <form id="form-add" style="color: #757575;" action="php/add.php" method="POST"
                         enctype="multipart/form-data">
 
                         <!-- Name -->
@@ -71,8 +74,9 @@
                         <!-- E-mail -->
                         <div class="md-form">
                             <input type="text" id="type" name="type" class="form-control"
-                                placeholder="กรุณากรอก : ขนม, ของแห้ง, เครื่องดื่ม" required>
+                                placeholder="กรุณากรอก : ขนม, ของแห้ง, เครื่องดื่ม"required>
                             <label for="type">Type</label></label>
+                            <small class="text-danger"> ** หากต้องการใส่ Tag หลายอย่างกรุณาใส่ (,) กั้น เช่น tagh</small>
                         </div>
 
                         <div class="md-form">
@@ -134,12 +138,16 @@
     <script src="../assets/js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/formdata.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.min.js"></script>
+    
 
     <script src="js/add.js"></script>
 
 
 
     <script>
+       
+
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

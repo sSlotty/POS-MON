@@ -54,7 +54,7 @@
 
                             <!-- Form -->
                             <form action="" id="form-edit">
-                                <h5 class="text-left">ข้อมูลผู้ขาย</h5>
+                                <h5 class="text-left">ข้อมูลผู้ใช้งาน</h5>
                                 <hr>
                                 <!-- Email -->
                                 <div class="md-form">

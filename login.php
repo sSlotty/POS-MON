@@ -1,5 +1,9 @@
 <?php 
  include_once('connect.php');
+ error_reporting(0);
+ if($_SESSION['UserID']){
+    header('Location: client/index.php');
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +23,7 @@
 <body class="fixed-sn">
 
     <!--Main layout-->
-    <main>
-        <div class="container mb-5">
+        <div class="container mb-5 mt-5">
         <div class="card">
             <h5 class="card-header info-color white-text text-center py-4">
                 <strong>Sign in</strong>
@@ -29,11 +32,11 @@
 
                 <form class="text-center" id="form" action="" method="POST">
                     <div class="md-form">
-                        <input type="text" id="username" name="username" class="form-control">
+                        <input type="text" id="username" name="username" class="form-control" required>
                         <label for="username">Username</label>
                     </div>
                     <div class="md-form">
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password" class="form-control" required>
                         <label for="password">Password</label>
                     </div>
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit"
@@ -47,7 +50,7 @@
 
         </div>
         </div>
-    </main>
+    
     <!--/Main layout-->
 
     <!-- Footer -->

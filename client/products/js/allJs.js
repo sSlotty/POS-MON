@@ -1,8 +1,13 @@
 $(document).ready(function () {
     $('#dataTable').DataTable({
-        order: [
-            [3, 'desc'],
-            [0, 'asc']
+        "order": [0, 'asc'],
+        "language": [{
+            "emptyTable": `<div class="col-md-12 mt-5">
+            <center style="opacity: 0.5;">
+            <i class="fad fa-box-open" style="font-size: 100px; color:red;"></i>
+            <p class="text-center">ไม่มีสินค้าภายในคลัง</p>
+            </center>
+        </div>`}
         ]
     });
 

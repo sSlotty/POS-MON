@@ -15,11 +15,11 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="waves-effect" href="../dashboard/index.php"> <i class="fas fa-chevron-right"
-                                style="margin-right: 30px;"></i>หน้าจัดการขาย</a>
+                    <li><a class="waves-effect" href="../dashboard/index.php"> <i class="fad fa-cash-register"
+                                style="margin-right: 30px; font-size:25px;"></i>หน้าจัดการขาย</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i
-                                class="fab fa-product-hunt mr-4"></i>Product Management<i
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-box-full"
+                                style="font-size:25px; margin-right:20px;"></i>Product Management<i
                                 class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
@@ -28,7 +28,11 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-analytics mr-3"></i>
+                    <li><a class="waves-effect" href="../receipts/"> <i class="fad fa-file-invoice"
+                                style="margin-right: 30px; font-size:30px;"></i>Receipts</a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-analytics mr-3"
+                                style="font-size:25px"></i>
                             Analysis<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
@@ -39,7 +43,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-user-alt mr-3"></i> Account
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-user-alt mr-3"
+                                style="font-size:25px; margin-right:20px;"></i> Account
                             Management
                             <i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">

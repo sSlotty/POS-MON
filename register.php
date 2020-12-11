@@ -1,6 +1,9 @@
 <?php 
  include_once('connect.php');
-
+ error_reporting(0);
+ if($_SESSION['UserID']){
+    header('Location: client/index.php');
+ }
 
 ?>
 <!DOCTYPE html>
@@ -32,17 +35,17 @@
                 <form method="POST" action="assets/php/register.php" id="form">
 
                      <div class="md-form">
-                        <input type="email" id="email" name="email" class="form-control">
+                        <input type="email" id="email" name="email" class="form-control" required>
                         <label for="email">Email</label>
                     </div>
 
                     <div class="md-form">
-                        <input type="text" id="username" name="username" class="form-control">
+                        <input type="text" id="username" name="username" class="form-control" required>
                         <label for="username">Username</label>
                     </div>
 
                     <div class="md-form">
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password" class="form-control" required>
                         <label for="password">Password</label>
                     </div>
 

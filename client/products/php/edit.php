@@ -21,7 +21,7 @@ if(empty($_FILES)){
         $result = $conn->query($sql) or die($conn->error);
     
         if($result){
-            echo json_encode(["status"=>true,"message"=>"แก้ไขข้อมูลไม่สำเร็จ !"]);
+            echo json_encode(["status"=>true,"message"=>"แก้ไขข้อมูลสำเร็จ !"]);
         }else{
             echo json_encode(["status"=>false,"message"=>"แก้ไขข้อมูลสินค้าไม่สำเร็จ !"]);
         }
@@ -33,7 +33,7 @@ if(empty($_FILES)){
     if(move_uploaded_file($_FILES['image']['tmp_name'],$url_upload)){
         $sql = "UPDATE `products` SET 
                 `product_name` = '".$product_name."',
-                `product_amount` = '".$price."',
+                `product_amount` = '".$amount."',
                 `product_type` = '".$type."',
                 `product_image` = '".$new_name."',
                 `product_price` = '".$price."'

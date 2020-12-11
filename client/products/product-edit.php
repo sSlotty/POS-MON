@@ -13,6 +13,11 @@ $sql = "SELECT * FROM `products` WHERE `id_shop` LIKE '".$shop_id."' AND `produc
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
+$numrow = mysqli_num_rows($result);
+if($numrow == 0){
+    header('Location: ../products');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,7 @@ $row = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product-edit</title>
+    <title>Product Manager | Edit Product</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -43,12 +48,11 @@ $row = $result->fetch_assoc();
     <main>
         <div class="container-fluid mb-5">
             <!-- Material form contact -->
-            <h5>Product edit</h5>
             <div class="card">
 
                 <h5 class="card-header warning-color white-text text-center py-4">
-                    <strong>Edit product #<?php echo $product_id; ?></strong>
-
+                    <strong> Product Edit | #<?php echo $product_id; ?></strong>
+                   
                 </h5>
 
                 <!--Card content-->

@@ -89,6 +89,26 @@ var shoppingCart = (function () {
     obj.clearCart = function () {
         cart = [];
         saveCart();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener(
+                    'mouseenter', Swal
+                    .stopTimer)
+                toast.addEventListener(
+                    'mouseleave', Swal
+                    .resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Clear cart'
+        })
     }
 
     // Count cart 
@@ -211,38 +231,61 @@ function displayCart() {
 $('.check-out').on('click', function () {
     var myCart = JSON.stringify(shoppingCart.listCart());
     if (shoppingCart.listCart().length > 0) {
-        $.ajax({
-            url: '../assets/php/check-out.php',
-            type: 'POST',
-            data: {cart:myCart},
-            dataType: 'json',
-            success: function (response) {
-                if (response.status) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'ชำระเงินสำเร็จ',
-                        text: response.message,
-                        footer: '<a href>Why do I have this issue?</a>'
-                      }).then(function () {
-                        shoppingCart.clearCart();
-                          displayCart();
-                          location.reload();
-                    })
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'ชำระเงินไม่สำเร็จ',
-                        text: response.message,
-                        footer: '<a href>Why do I have this issue?</a>'
-                    });
-                }
-            },
-            error: function (request, error) {
-                alert("AJAX Call Error: " + error);
-            }
+        
+        var income = $('#income').val();
+        var pareIncome = parseInt(income);
+        
+        if (pareIncome > 0) {
 
+            if (pareIncome >= shoppingCart.totalCart()) {
+                $.ajax({
+                    url: '../assets/php/check-out.php',
+                    type: 'POST',
+                    data: {cart:myCart,money:pareIncome},
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'ชำระเงินสำเร็จ',
+                                html: `<div class="text-left">จำนวนเงิน : `+ response.total + `</br>Income : ` + response.income +`</br>Change : ` + response.change + `</br>Receipts number : ` + response.receipt + `</br>` +`</div>` ,
+                                footer: '<a href="'+ response.link +'">รายละเอียดการซื้อสินค้า?</a>'
+                              }).then(function () {
+                                shoppingCart.clearCart();
+                                  displayCart();
+                                  location.reload();
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'ชำระเงินไม่สำเร็จ',
+                                text: response.message,
+                                footer: '<a href>Why do I have this issue?</a>'
+                            });
+                        }
+                    },
+                    error: function (request, error) {
+                        alert("AJAX Call Error: " + error);
+                    }
+        
+                    
+                });
+            } else {
+                Swal.fire(
+                    'Warning !',
+                    'โปรดตรวจเช็คจำนวนเงินอีกครั้ง',
+                    'warning'
+                )
+                
+            }
             
-        });
+        } else {
+            Swal.fire(
+                'Warning !',
+                'กรุณากรอกจำนวนเงิน',
+                'warning'
+            )
+        }
 
     } else {
         Swal.fire(
