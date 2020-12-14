@@ -36,9 +36,9 @@
                             Analysis<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
-                                <li><a href="#" class="waves-effect">Introduction</a>
+                                <li><a href="../analysis/index.php" class="waves-effect">หน้ารวม</a>
                                 </li>
-                                <li><a href="#" class="waves-effect">Monthly meetings</a>
+                                <li><a href="../analysis/product.php" class="waves-effect">Product Analytics</a>
                                 </li>
                             </ul>
                         </div>

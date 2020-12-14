@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis</title>
+    <title>Products | Analysis</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -38,8 +38,8 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="far fa-money-bill-alt fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย วันนี้</small></p>
-                                <h5 class="font-weight-bold mb-0">23 000$</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า วันนี้</small></p>
+                                <h5 class="font-weight-bold mb-0">23 000 ชิ้น</h5>
                             </div>
                         </div>
 
@@ -52,8 +52,8 @@
                             <i
                                 class="fas fa-chart-bar fa-lg deep-purple z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย 7 ที่ผ่านมา</small></p>
-                                <h5 class="font-weight-bold mb-0">1 456</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า 7 ที่ผ่านมา</small></p>
+                                <h5 class="font-weight-bold mb-0">1 456 ชิ้น</h5>
                             </div>
                         </div>
 
@@ -65,8 +65,8 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-chart-pie fa-lg teal z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายเดือนที่ผ่านมา</small></p>
-                                <h5 class="font-weight-bold mb-0">323 540</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า เดือนที่ผ่านมา</small></p>
+                                <h5 class="font-weight-bold mb-0">323 540 ชิ้น</h5>
                             </div>
                         </div>
 
@@ -77,8 +77,8 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-download fa-lg pink z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายรวมทั้งหมด</small></p>
-                                <h5 class="font-weight-bold mb-0">13 540</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า รวมทั้งหมด</small></p>
+                                <h5 class="font-weight-bold mb-0">13 540 ชิ้น</h5>
                             </div>
                         </div>
 

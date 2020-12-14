@@ -72,12 +72,22 @@
                         </div>
 
                         <!-- E-mail -->
-                        <div class="md-form">
-                            <input type="text" id="type" name="type" class="form-control"
-                                placeholder="กรุณากรอก : ขนม, ของแห้ง, เครื่องดื่ม"required>
-                            <label for="type">Type</label></label>
-                            <small class="text-danger"> ** หากต้องการใส่ Tag หลายอย่างกรุณาใส่ (,) กั้น เช่น tagh</small>
-                        </div>
+                        <select  name="type" id="type"class="mdb-select md-form" searchable="Search here..">
+                            <option value="" disabled selected>กรุณาเลือก Type ของสินค้า</option>
+                            <option value="เครื่องดื่ม">เครื่องดื่ม</option>
+                            <option value="นม/โยเกิร์ต">นม/โยเกิร์ต</option>
+                            <option value="เบเกอร์รี่">เบเกอร์รี่</option>
+                            <option value="ขนมและลูกอม">ขนมและลูกอม</option>
+                            <option value="อาหารพร้อมปรุง">อาหารพร้อมปรุง</option>
+                            <option value="อาหารแห้ง">อาหารแห้ง</option>
+                            <option value="ของใช้ครัวเรือน">ของใช้ครัวเรือน</option>
+                            <option value="ไอศกรีม">ไอศกรีม</option>
+                            <option value="แฟชั่น">แฟชั่น</option>
+                            <option value="ยา/สุขภาพ/ความงาม">ยา/สุขภาพ/ความงาม</option>
+                            <option value="ไอทีและมือถือ">ไอทีและมือถือ</option>
+                            <option value="หนังสือ">หนังสือ</option>
+
+                        </select>
 
                         <div class="md-form">
                             <div class="file-field pb-5">
@@ -138,16 +148,13 @@
     <script src="../assets/js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/formdata.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.min.js"></script>
-    
+
 
     <script src="js/add.js"></script>
 
 
 
     <script>
-       
-
-
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -162,6 +169,10 @@
 
         $("#image").change(function () {
             readURL(this);
+        });
+        // Material Select Initialization
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
         });
     </script>
 </body>

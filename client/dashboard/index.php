@@ -156,14 +156,9 @@ $shop_id = $_SESSION['ShopID'];
         <div class="container-fluid mb-5">
             <div class="row layout-margin-8">
                 <div class="col-md-8 mb-4">
-                    <div class="card card-cascade">
+                <div class="card card-cascade">
                         <div class="view view-cascade gradient-card-header blue-gradient">
-                            <h2 class="card-header-title">
-                                <a class="btn-floating btn-md btn-default">
-                                    <i class="fas fa-store"></i>
-                                </a>
-                                <span>สินค้าทั้งหมด</span>
-                            </h2>
+                            <h5>สินค้าทั้งหมด</h5>
                         </div>
                     </div>
                     <div data-spy="scroll" class="scroll scrollspy-example z-depth-1">
@@ -171,7 +166,7 @@ $shop_id = $_SESSION['ShopID'];
                             <div class="row row-cols-1 row-cols-md-4 " id="item">
                                 <?php while($row = $result->fetch_array()){?>
 
-                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 ">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
                                     <div class="card hover-card" style="width: 100%">
                                         <div class="view overlay">
                                             <img class="card-img-top product-img img-fluid hover-shadow"

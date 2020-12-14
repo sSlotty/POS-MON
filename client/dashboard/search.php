@@ -161,26 +161,20 @@ $shop_id = $_SESSION['ShopID'];
             <div class="row ">
                 <div class="col-md-8 mb-4">
                     <div class="card card-cascade">
-
-                        <!-- Card image -->
                         <div class="view view-cascade gradient-card-header blue-gradient">
-
-                            <!-- Title -->
-                            <h2 class="card-header-title">
-                                <a class="btn-floating btn-md btn-default">
-                                    <i class="fas fa-store"></i>
-                                </a>
-                                <span>สินค้าทั้งหมด</span>
-                            </h2>
-                            <!-- Subtitle -->
-
+                            <h5>สินค้าทั้งหมด</h5>
                         </div>
+                    </div>
 
-                        <!-- Card content -->
+
+                    <!-- Card content -->
+                    <div data-spy="scroll" class="scroll scrollspy-example z-depth-1">
+
                         <div class="card-body card-body-cascade text-center">
 
                             <div class="table-responsive-xl">
-                                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm table-fixed"
+                                <table id="dataTable"
+                                    class="table table-hover table-striped table-bordered table-sm table-fixed"
                                     cellspacing="0" width="100%">
                                     <thead class="text-center">
                                         <tr>
@@ -201,11 +195,11 @@ $shop_id = $_SESSION['ShopID'];
                                     </thead>
                                     <tbody>
                                         <?php 
-                                                  
-
-                                                while($row = mysqli_fetch_array($result)){
-                                                    
-                                                ?>
+                                                      
+    
+                                                    while($row = mysqli_fetch_array($result)){
+                                                        
+                                                    ?>
                                         <tr>
 
                                             <td class="text-center img-fluid shadow-2-strong img-sm"><img width="100"
@@ -218,17 +212,16 @@ $shop_id = $_SESSION['ShopID'];
                                                 <a href="#" data-name="<?php echo $row['product_name'];?>"
                                                     data-amount="<?php echo $row['product_amount'];?>"
                                                     data-price="<?php echo $row['product_price'];?>"
-                                                    data-id="<?php echo $row['product_id'];?>" 
-                                                    data-shop="12345678910"
+                                                    data-id="<?php echo $row['product_id'];?>" data-shop="12345678910"
                                                     class="add-to-cart btn btn-sm btn-success">Add to
                                                     cart</a>
                                             </td>
 
                                         </tr>
                                         <?php
-                               
-                                                 }
-                                                 ?>
+                                   
+                                                     }
+                                                     ?>
 
                                     </tbody>
                                     <tfoot>
@@ -250,10 +243,11 @@ $shop_id = $_SESSION['ShopID'];
                             </div>
 
                         </div>
-
                     </div>
 
                 </div>
+
+
 
                 <div class="col-md-4 mb-4">
                     <div class="card card-cascade">
@@ -284,11 +278,12 @@ $shop_id = $_SESSION['ShopID'];
 
 
                     </div>
-
                 </div>
 
             </div>
         </div>
+
+
 
     </main>
     <!--/Main layout -->
