@@ -238,16 +238,16 @@ $shop_id = $_SESSION['ShopID'];
                         <div class="table-responsive">
                             <table class="show-cart-simple table text-nowrap table-sm">
 
-                            </table>
+                                </table>
+
+                            </div>
+
+
 
                         </div>
-
-
-
                     </div>
-
                 </div>
-
+              
             </div>
         </div>
     </main>
@@ -320,8 +320,9 @@ $shop_id = $_SESSION['ShopID'];
             </div>
         </div>
     </div>
-    <!-- Modal: modalPoll -->
-
+  </div>
+</div>
+<!-- Modal: modalCart -->
 
 
     <!-- Footer -->
