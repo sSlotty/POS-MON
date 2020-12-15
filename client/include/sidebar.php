@@ -28,13 +28,12 @@
                                 style="margin-right: 25px; font-size:30px;"></i>Coupon</a>
                     </li> -->
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-analytics mr-3"
-                                style="font-size:25px"></i>
-                            Analysis<i class="fas fa-angle-down rotate-icon"></i></a>
+                                style="font-size:25px; padding-right:2px;"></i> Sale stat<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
                                 <li><a href="../analysis/index.php" class="waves-effect">หน้ารวม</a>
                                 </li>
-                                <li><a href="../analysis/product.php" class="waves-effect">Product Analytics</a>
+                                <li><a href="../analysis/product.php" class="waves-effect">Product Stat</a>
                                 </li>
                             </ul>
                         </div>

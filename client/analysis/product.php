@@ -1,7 +1,25 @@
 <?php 
  include_once('../../connect.php');
  require_once('../authen.php');
+ $shop_id = $_SESSION['ShopID'];
 
+
+ $sql_all = "SELECT sum(amount) as count_all FROM receipt WHERE shop_id = $shop_id;";
+ $result_all = $conn->query($sql_all) or die($conn->errno);
+ $row1 = $result_all->fetch_assoc();
+
+ $sql_lastweek = "SELECT sum(amount) as count_week FROM receipt WHERE WEEK(created_at, 1) = WEEK( date_sub( curdate(), interval 7 day),1) and created_at >date_sub(curdate(), interval 14 day) and shop_id = $shop_id;";
+ $result_lastweek = $conn->query($sql_lastweek) or die($conn->error);
+ $row2 = $result_lastweek->fetch_assoc();
+ 
+ $sql_today = "SELECT sum(amount) as count_today FROM receipt WHERE DATE(created_at) = CURDATE() and shop_id = $shop_id;";
+ $result_today = $conn->query($sql_today) or die($conn->errno);
+ $row3 = $result_today->fetch_assoc();
+ 
+ 
+ $sql_lastMonth = "SELECT sum(amount) as count_month FROM receipt WHERE left(created_at, 7) = left( date_sub( curdate(), interval 1 month), 7) and shop_id = $shop_id;";
+ $result_lastMonth = $conn->query($sql_lastMonth) or die($conn->errno);
+ $row4 = $result_lastMonth->fetch_assoc();
 
 ?>
 <!DOCTYPE html>
@@ -10,7 +28,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | Analysis</title>
+    <title>Analysis</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -38,8 +56,9 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="far fa-money-bill-alt fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า วันนี้</small></p>
-                                <h5 class="font-weight-bold mb-0">23 000 ชิ้น</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย วันนี้</small></p>
+                                <h5 class="font-weight-bold mb-0">
+                                <?php echo $row3['count_today'];?></h5>
                             </div>
                         </div>
 
@@ -52,8 +71,9 @@
                             <i
                                 class="fas fa-chart-bar fa-lg deep-purple z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า 7 ที่ผ่านมา</small></p>
-                                <h5 class="font-weight-bold mb-0">1 456 ชิ้น</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย อาทิตย์ที่ผ่านมา</small></p>
+                                <h5 class="font-weight-bold mb-0">
+                                <?php echo $row2['count_week'];?></h5>
                             </div>
                         </div>
 
@@ -65,8 +85,9 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-chart-pie fa-lg teal z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า เดือนที่ผ่านมา</small></p>
-                                <h5 class="font-weight-bold mb-0">323 540 ชิ้น</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายเดือนที่ผ่านมา</small></p>
+                                <h5 class="font-weight-bold mb-0">
+                                <?php echo $row4['count_month'];?></h5>
                             </div>
                         </div>
 
@@ -77,8 +98,9 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-download fa-lg pink z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายสินค้า รวมทั้งหมด</small></p>
-                                <h5 class="font-weight-bold mb-0">13 540 ชิ้น</h5>
+                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายรวมทั้งหมด</small></p>
+                                <h5 class="font-weight-bold mb-0"><?php echo $row1['count_all'];?>
+                                </h5>
                             </div>
                         </div>
 
@@ -94,7 +116,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <canvas id="summery" ></canvas>
+                            <canvas id="summery"></canvas>
 
                         </div>
                     </div>
@@ -123,44 +145,76 @@
 
     <script>
         $(document).ready(function () {
-
-            var ctx = document.getElementById('summery');
-            var myChart = new Chart(ctx, {
-                type: 'line',
+            $.ajax({
+                type: 'POST',
+                url: 'php/system.php',
                 data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June','January', 'July', 'August', 'September', 'October', 'December'],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [500000,200000,800000,600000,700000,800000,10000,50000,60000,515121,1965962,1548488],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                    data: 'product'
                 },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
+                dataType: 'json',
+                success: function (response) {
+
+                    if (response.status) {
+                        console.log(response.Dec)
+                        var ctx = document.getElementById('summery');
+                        var myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ['January', 'February', 'March', 'April', 'May',
+                                    'June', 'July', 'August', 'September', 'October',
+                                    'November', 'December'
+                                ],
+                                datasets: [{
+                                    label: '#Product Amount Sale',
+                                    data: [parseInt(response.Jan), parseInt(response.Feb), parseInt(response.Mar), parseInt(response.Apr),
+                                        parseInt(response.May),
+                                        parseInt(response.Jun), parseInt(response.Jul), parseInt(response.Aug), parseInt(response.Sep),
+                                        parseInt(response.Oct),
+                                        parseInt(response.Nov), parseInt(response.Dec)
+                                    ],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
                             }
-                        }]
+                        });
+
+                    } else {
+                        Swal.fire(
+                            'Warning!',
+                            data.message,
+                            'warning'
+                        ).then(function () {
+                            window.location.href = 'index.php';
+                        });
                     }
                 }
+
             });
+
 
         })
     </script>
