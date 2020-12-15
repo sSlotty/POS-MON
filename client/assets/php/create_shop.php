@@ -21,7 +21,6 @@
                 `verify`= 'true' WHERE `user_id` = '".$user_id."'";
         $query = $conn->query($shop) or die($conn->error);
         $_SESSION['verify'] = "true";
-        $_SESSION['ShopID'] = $shop_id;
         
         if($query){
             echo json_encode(["status"=>true,"message"=>"สร้างร้านค้าสำเร็จ !"]);
