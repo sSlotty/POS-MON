@@ -197,12 +197,12 @@ function displayCart() {
             `<td>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <button class="plus-item btn btn-sm btn-success m-0 px-3 mr-2" type="button" data-name="` + cartArray[i].name + `"><i
-                            class="far fa-plus"></i></button>
+                    <button class="minus-item btn btn-sm btn-success m-0 px-3 mr-2" type="button" data-name="` + cartArray[i].name + `"><i
+                            class="fas fa-minus"></i></button>
                     <input type="number" class="form-control" style="width: 60px;" disabled
                         min="0" data-name="` + cartArray[i].name + `" value="` + cartArray[i].count + `">
-                    <button class="minus-item btn btn-sm btn-warning m-0 px-3 ml-2" type="button" data-name="` + cartArray[i].name + `"><i
-                            class="fas fa-minus"></i></button>
+                    <button class="plus-item btn btn-sm btn-warning m-0 px-3 ml-2" type="button" data-name="` + cartArray[i].name + `"><i
+                            class="far fa-plus"></i></button>
                 </div>
             </div>
         </td>

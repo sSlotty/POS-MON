@@ -6,6 +6,7 @@ $shop_id = $_SESSION['ShopID'];
  $sql = "SELECT * FROM products WHERE id_shop = '".$shop_id."' AND product_amount > 0 AND status = 'on'";
 
  $result = mysqli_query($conn,$sql);
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
