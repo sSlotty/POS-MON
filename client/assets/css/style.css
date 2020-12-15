@@ -20,3 +20,8 @@ body{
 .scroll::-webkit-scrollbar {
     display: none;
   }
+
+.footer{
+    padding-right: 15px;
+    padding-left: 15px;
+  }

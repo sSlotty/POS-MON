@@ -13,7 +13,6 @@ $(document).ready(function () {
         
         allForm.append('image', $('#image').get(0).files[0]);
 
- 
 
         $.ajax({
             type: 'POST',
