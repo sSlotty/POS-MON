@@ -233,6 +233,7 @@ $('.check-out').on('click', function () {
     if (shoppingCart.listCart().length > 0) {
         
         var income = $('#income').val();
+        var coupon = $('#coupon').val();
         var pareIncome = parseInt(income);
         
         if (pareIncome > 0) {
@@ -241,14 +242,15 @@ $('.check-out').on('click', function () {
                 $.ajax({
                     url: '../assets/php/check-out.php',
                     type: 'POST',
-                    data: {cart:myCart,money:pareIncome},
+                    data: {cart:myCart,money:pareIncome,coupon:coupon},
                     dataType: 'json',
                     success: function (response) {
                         if (response.status) {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'ชำระเงินสำเร็จ',
-                                html: `<div class="text-left">จำนวนเงิน : `+ response.total + `</br>Income : ` + response.income +`</br>Change : ` + response.change + `</br>Receipts number : ` + response.receipt + `</br>` +`</div>` ,
+                                html: `
+                                <div class="text-left">จำนวนเงิน : `+ response.total + `</br>Revice : ` + response.income + `</br>Change : ` + response.change + `</br><div class="text-danger">Discount : ` + response.before_dis +`(`+ response.discount+`%)</div>`+ `</br>Receipts number : ` + response.receipt + `</br>` + `</div>`,
                                 footer: '<a href="'+ response.link +'">รายละเอียดการซื้อสินค้า?</a>'
                               }).then(function () {
                                 shoppingCart.clearCart();

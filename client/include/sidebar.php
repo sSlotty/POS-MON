@@ -18,22 +18,15 @@
                     <li><a class="waves-effect" href="../dashboard/index.php"> <i class="fad fa-cash-register"
                                 style="margin-right: 30px; font-size:25px;"></i>หน้าจัดการขาย</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-box-full"
-                                style="font-size:25px; margin-right:20px;"></i>Product Management<i
-                                class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul class="list-unstyled">
-                                <li><a href="../products/index.php" class="waves-effect">Product List</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <li><a class="collapsible-header waves-effect arrow-r" href="../products/index.php" ><i class="fad fa-box-full"
+                                style="font-size:25px; margin-right:20px;"></i>Product Management</a>
                     </li>
                     <li><a class="waves-effect" href="../receipts/"> <i class="fad fa-file-invoice"
                                 style="margin-right: 30px; font-size:30px;"></i>Receipts</a>
                     </li>
-                    <li><a class="waves-effect" href="../coupon/"> <i class="fab fa-slack-hash"
+                    <!-- <li><a class="waves-effect" href="../coupon/"> <i class="fab fa-slack-hash"
                                 style="margin-right: 25px; font-size:30px;"></i>Coupon</a>
-                    </li>
+                    </li> -->
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-analytics mr-3"
                                 style="font-size:25px"></i>
                             Analysis<i class="fas fa-angle-down rotate-icon"></i></a>

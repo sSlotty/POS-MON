@@ -96,36 +96,45 @@
 
                                         <!-- Name coupon -->
                                         <div class="md-form mt-3">
-                                            <input type="text" id="name_coupon" name="name_coupon" class="form-control">
+                                            <input type="text" id="name_coupon" name="name_coupon" class="form-control"
+                                                required>
                                             <label for="name_coupon">Name of Coupon</label>
                                         </div>
 
 
                                         <!-- Name -->
                                         <div class="md-form mt-3">
-                                            <input type="text" id="id_coupon" name="id_coupon" class="form-control">
+                                            <input type="text" id="id_coupon" name="id_coupon" class="form-control"
+                                                required>
                                             <label for="id_coupon">Coupon number</label>
                                         </div>
 
                                         <!-- id_coupon -->
                                         <div class="md-form">
                                             <input type="number" min="0" id="percent" name="percent"
-                                                class="form-control">
+                                                class="form-control" required>
                                             <label for="percent">Percent for discount</label>
+                                        </div>
+
+                                        <!-- id_coupon -->
+                                        <div class="md-form">
+                                            <input type="number" min="0" id="price_condition" name="price_condition"
+                                                class="form-control" required>
+                                            <label for="percent">Price Condition</label>
                                         </div>
 
                                         <!-- id -->
                                         <div class="md-form">
                                             <input type="number" min="0" id="quantity" name="quantity"
-                                                class="form-control">
+                                                class="form-control" required>
                                             <label for="quantity">Quantity</label>
                                         </div>
 
                                         <!-- Date-end -->
                                         <div class="md-form">
-                                            <input type="date" min="0" id="date-end" name="date-end"
-                                                class="form-control">
-                                            <label for="date-end">Date end</label>
+                                            <p class="text-left">Date end</p>
+                                            <input type="datetime-local" id="date-end" name="date-end"
+                                                class="form-control" required>
                                         </div>
                                         <button class="text-center btn btn-green btn-block my-4 waves-effect z-depth-0"
                                             type="submit">add</button>
@@ -145,8 +154,8 @@
                     <div class="row">
                         <div class="col-12">
                             <h5>Recipt List</h5>
-                            <div class="table-responsive-lg">
-                                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm "
+                            <div class="table-responsive">
+                                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm"
                                     cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
@@ -158,13 +167,15 @@
                                             </th>
                                             <th scope="col" class="th-sm">Discount
                                             </th>
+                                            <th scope="col" class="th-sm">Condition
+                                            </th>
                                             <th scope="col" class="th-sm">Quantity
                                             </th>
                                             <th scope="col" class="th-sm">Date-end
                                             </th>
                                             <th scope="col" class="th-sm">Create
                                             </th>
-                                            <th scope="col" class="th-sm">Update
+                                            <th scope="col" class="th-sm">Action
                                             </th>
 
                                         </tr>
@@ -174,38 +185,43 @@
                         $i = 0;
                         while($row = mysqli_fetch_array($result)){
                             $i++;
+                            $id = $row['id_coupon'];
                         ?>
                                         <tr>
                                             <td scpre="row"><?php echo $i;?></td>
                                             <td scpre="row"><?php echo $row['name'];?></td>
                                             <td><?php echo $row['id_coupon'];?></td>
                                             <td><?php echo $row['percent'];?></td>
+                                            <td><?php echo $row['price_condition'];?></td>
                                             <td><?php echo $row['quantity'];?></td>
                                             <td><?php echo DateThai($row['date_end']);?></td>
 
                                             <td><?php echo DateThai($row['created_at']);?></td>
-                                            <td><?php echo DateThai($row['updated_at']);?></td>
-                                            
-                                        <?php }?>
+                                            <td><a type="button" class="btn btn-danger btn-rounded btn-sm delete"
+                                                    data-id="<?php echo $id;?>">Delete</a></td>
+
+                                            <?php }?>
 
                                     </tbody>
                                     <tfoot>
-                                    <tr>
+                                        <tr>
                                             <th scope="col" class="th-sm">#
                                             </th>
                                             <th scope="col" class="th-sm">Name
                                             </th>
                                             <th scope="col" class="th-sm">Code
                                             </th>
-                                            <th scope="col" class="th-sm">Quantity
-                                            </th>
                                             <th scope="col" class="th-sm">Discount
+                                            </th>
+                                            <th scope="col" class="th-sm">Condition
+                                            </th>
+                                            <th scope="col" class="th-sm">Quantity
                                             </th>
                                             <th scope="col" class="th-sm">Date-end
                                             </th>
                                             <th scope="col" class="th-sm">Create
                                             </th>
-                                            <th scope="col" class="th-sm">Update
+                                            <th scope="col" class="th-sm">Action
                                             </th>
 
                                         </tr>
@@ -276,12 +292,32 @@
 
         }
 
+        function rightAlertNoRedirect(icon, message) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: icon,
+                title: message
+            })
+
+        }
+
         $(document).ready(function () {
 
             $("#formCoupon").submit(function (event) {
                 event.preventDefault();
                 var form_data = $(this).serialize();
-
+                console.log(form_data)
                 $.ajax({
                     type: 'POST',
                     url: 'php/add.php',
@@ -297,6 +333,44 @@
                     }
 
                 });
+            });
+
+            $('.delete').click(function () {
+                var el = this;
+
+                var deletedid = $(this).data('id');
+                console.log(deletedid);
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: " You want to delete coupon ID: " + deletedid,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: 'php/remove.php',
+                            type: 'POST',
+                            data: {
+                                id: deletedid
+                            },
+                            success: function (data) {
+                                if (data.status) {
+                                    rightAlertNoRedirect('success', data.message)
+
+                                    $(el).closest('tr').fadeOut(800, function () {
+                                        $(this).remove();
+                                    });
+                                } else {
+                                    rightAlertNoRedirect('warning', data.message)
+
+                                }
+                            }
+                        })
+                    }
+                })
             });
         });
     </script>
