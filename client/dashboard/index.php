@@ -41,6 +41,9 @@ $shop_id = $_SESSION['ShopID'];
         .break {
             word-break: break-all;
         }
+        .bg-1{
+            backgroud-color: rgba(63, 81, 181, 0.7);
+        }
     </style>
 </head>
 
@@ -149,7 +152,7 @@ $shop_id = $_SESSION['ShopID'];
 
                 <div class="col-md-4 mb-4">
                     <div class="card card-cascade">
-                        <div class="view view-cascade gradient-card-header purple-gradient">
+                        <div class="view view-cascade gradient-card-header gradient-card-header blue-gradient">
                             <h5>Total price : <span class="total-cart"></span> ฿</h5>
 
                         </div>

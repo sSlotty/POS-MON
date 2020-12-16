@@ -3,8 +3,10 @@ include_once('../../../connect.php');
 header("Content-type: application/json; charset=utf-8"); 
 
 $shop_id = $_SESSION['ShopID'];
+$user_id = $_SESSION['UserID'];
 
 
+empty($row['line_notify']);
 
 
 if($_POST['data'] == 'All'){
@@ -69,20 +71,34 @@ if($_POST['data'] == 'All'){
     $row2 = $result2->fetch_assoc();
 
     echo json_encode(["status"=>true,"total_money"=>$row['total'],"total_product"=>$row2['total']]);
-    $now = date("h:i:sa");
-    $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end->format('Y-m-d') ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
-    sendLine($text);
+    
+
+    // $sql = "SELECT line_notify FROM members WHERE user_id = '".$user_id."'";
+    // $result = $conn->query($sql) or die($conn->error);
+    // $row = $result->fetch_assoc();
+
+    // if(!empty($row['line_notify'])){
+
+    //     $line = $row['line_notify'];
+    //     $now = date("h:i:sa");
+    //     sendLine($text,$line);
+
+    // }else{
+    //     echo json_encode(["status"=>false,"message"=>"Your line notify is valid"]);
+
+    // }
+    
 }else{
 
 }
 
-function sendLine($text){
+function sendLine($text,$line){
     ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	date_default_timezone_set("Asia/Bangkok");
 
-	$sToken = "5NjPpzU7gXEaTKPa0S68WG4C4k6gKwIu1NadB9c7vPH";
+	$sToken = $line;
 	$sMessage = $text;
 
 	

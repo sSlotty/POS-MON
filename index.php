@@ -26,10 +26,28 @@ error_reporting(0);
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
                 <a class="navbar-brand" href="#"><strong>MON</strong></a>
-                <?php if($_SESSION['UserID']){
-                    echo '<a type="button" class="navbar-brand btn btn-md btn-danger" href="client/index.php"><strong>DASHBOARD</strong></a>';
-                    }?>
-
+               
+                <?php if($_SESSION['UserID']){ ?>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-user"></i> Profile </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                          <a class="dropdown-item" href="client/">Dashboard</a>
+                          <a class="dropdown-item" href="logout.php">Logout</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                   <?php }else{
+                       
+                   }?>
+                    
+                    <!--Trigger-->
+                  
+            
             </div>
         </nav>
 
@@ -71,7 +89,8 @@ error_reporting(0);
         <div class="container">
 
             <section class="my-5 wow fadeIn" data-wow-delay="0.3s">
-            <h5 class="wow fadeIn"><span style="font-size:50px">F</span><span style="font-size:40px">eature</span></h5>
+                <h5 class="wow fadeIn"><span style="font-size:50px">F</span><span style="font-size:40px">eature</span>
+                </h5>
 
                 <div class="row">
                     <div class="col-6">
@@ -84,119 +103,120 @@ error_reporting(0);
                         <p><i class="fas fa-check text-success"></i> คำนวนภาษีมูลค่าเพิ่มอัตโนมัติ</p>
                         <p><i class="fas fa-check text-success"></i> ตัดสต๊อกสินค้าอัตโนมัติ</p>
                         <p><i class="fas fa-check text-success"></i> สามรถดูใบเสร็จย้อนหลังได้</p>
-                        <p><i class="fas fa-check text-success"></i> ระบบ Data Analytics <?php print_r($_SESSION); ?></p>
-                       
+                        <p><i class="fas fa-check text-success"></i> ระบบ Data Analytics <?php print_r($_SESSION); ?>
+                        </p>
+
                     </div>
                     <div class="col-6">
                         <!--Mask with wave-->
-                            <img src="https://cf.shopee.co.th/file/1746412dab48f93a02d234a570163cb5"
-                                class="img-fluid" alt="Sample image with waves effect.">
-                                <div class="mask waves-effect rgba-white-slight"></div>
-                        </div>
+                        <img src="https://cf.shopee.co.th/file/1746412dab48f93a02d234a570163cb5" class="img-fluid"
+                            alt="Sample image with waves effect.">
+                        <div class="mask waves-effect rgba-white-slight"></div>
                     </div>
                 </div>
-            </section>
-            <section class="my-5 wow fadeIn" data-wow-delay="0.3s">
+        </div>
+        </section>
+        <section class="my-5 wow fadeIn" data-wow-delay="0.3s">
 
-                <h2 class="h1-responsive font-weight-bold text-center my-5">โปรเจคนี้จัดทำขึ้นมาโดย</h2>
+            <h2 class="h1-responsive font-weight-bold text-center my-5">โปรเจคนี้จัดทำขึ้นมาโดย</h2>
 
-                <p class="text-center w-responsive mx-auto grey-text">นิสิต สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาตร์
-                    มหาวิทยาลัยศรีนครินทรวิโรฒ </p>
-                <p class="text-center w-responsive mx-auto mb-5 grey-text">สามารถเข้ามาใช้งานและทดสอบ
-                    ประสิทธิภาพของระบบได้ ฟรี</p>
+            <p class="text-center w-responsive mx-auto grey-text">นิสิต สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาตร์
+                มหาวิทยาลัยศรีนครินทรวิโรฒ </p>
+            <p class="text-center w-responsive mx-auto mb-5 grey-text">สามารถเข้ามาใช้งานและทดสอบ
+                ประสิทธิภาพของระบบได้ ฟรี</p>
 
-                <div class="row">
+            <div class="row">
 
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
 
-                        <!--Card-->
-                        <div class="card testimonial-card">
+                    <!--Card-->
+                    <div class="card testimonial-card">
 
-                            <!--Background color-->
-                            <div class="card-up teal lighten-2">
-                            </div>
-
-                            <!--Avatar-->
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010027.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <!--Name-->
-                                <h4 class="card-title mt-1">THANATHIP CHANASRI</h4>
-                                <hr>
-                                <!--Quotation-->
-                                <p><i class="fas fa-quote-left"></i> Devloper</p>
-                            </div>
-
+                        <!--Background color-->
+                        <div class="card-up teal lighten-2">
                         </div>
-                        <!--Card-->
+
+                        <!--Avatar-->
+                        <div class="avatar mx-auto white"><img
+                                src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010027.jpg"
+                                alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                        </div>
+
+                        <div class="card-body">
+                            <!--Name-->
+                            <h4 class="card-title mt-1">THANATHIP CHANASRI</h4>
+                            <hr>
+                            <!--Quotation-->
+                            <p><i class="fas fa-quote-left"></i> Devloper</p>
+                        </div>
 
                     </div>
-                    <!--Grid column-->
+                    <!--Card-->
 
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4">
+                </div>
+                <!--Grid column-->
 
-                        <!--Card-->
-                        <div class="card testimonial-card">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
 
-                            <!--Background color-->
-                            <div class="card-up blue lighten-2">
-                            </div>
+                    <!--Card-->
+                    <div class="card testimonial-card">
 
-                            <!--Avatar-->
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010175.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
-
-                            <div class="card-body">
-
-                                <h4 class="card-title mt-1">Anna Aston</h4>
-                                <hr>
-
-                                <p><i class="fas fa-quote-left"></i> Content</p>
-                            </div>
-
+                        <!--Background color-->
+                        <div class="card-up blue lighten-2">
                         </div>
 
+                        <!--Avatar-->
+                        <div class="avatar mx-auto white"><img
+                                src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010175.jpg"
+                                alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                        </div>
+
+                        <div class="card-body">
+
+                            <h4 class="card-title mt-1">Anna Aston</h4>
+                            <hr>
+
+                            <p><i class="fas fa-quote-left"></i> Content</p>
+                        </div>
 
                     </div>
 
 
-
-                    <div class="col-lg-4 col-md-12 mb-4">
-
-
-                        <div class="card testimonial-card">
+                </div>
 
 
-                            <div class="card-up deep-purple lighten-2"></div>
+
+                <div class="col-lg-4 col-md-12 mb-4">
 
 
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010429.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
+                    <div class="card testimonial-card">
 
-                            <div class="card-body">
 
-                                <h4 class="card-title mt-1">Maria Kate</h4>
-                                <hr>
+                        <div class="card-up deep-purple lighten-2"></div>
 
-                                <p><i class="fas fa-quote-left"></i> Co dev</p>
-                            </div>
 
+                        <div class="avatar mx-auto white"><img
+                                src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010429.jpg"
+                                alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                        </div>
+
+                        <div class="card-body">
+
+                            <h4 class="card-title mt-1">Maria Kate</h4>
+                            <hr>
+
+                            <p><i class="fas fa-quote-left"></i> Co dev</p>
                         </div>
 
                     </div>
 
                 </div>
 
-            </section>
+            </div>
+
+        </section>
 
 
 
