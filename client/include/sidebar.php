@@ -1,8 +1,8 @@
 <?php 
 $shop_id = $_SESSION['ShopID'];
-$sql = "SELECT * FROM members WHERE shop_id = $shop_id";
-$result = $conn->query($sql) or die($conn->error);
-$row = $result->fetch_assoc();
+$sql_show_data = "SELECT * FROM members WHERE shop_id = $shop_id";
+$result_show_data = $conn->query($sql_show_data) or die($conn->error);
+$row_show_data = $result_show_data->fetch_assoc();
 
 ?>
 
@@ -74,7 +74,7 @@ $row = $result->fetch_assoc();
         </div>
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
-            <p><?php echo $row['shop_name'];?></p>
+            <p><?php echo $row_show_data['shop_name'];?></p>
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
             <!-- <li class="nav-item">
