@@ -4,7 +4,7 @@
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
         <div class="container-fluid">
-            © 2018 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
+            © 2020 Copyright: <a href="#"> MONStudio </a>
 
         </div>
     </div>

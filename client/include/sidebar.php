@@ -1,3 +1,11 @@
+<?php 
+$shop_id = $_SESSION['ShopID'];
+$sql = "SELECT * FROM members WHERE shop_id = $shop_id";
+$result = $conn->query($sql) or die($conn->error);
+$row = $result->fetch_assoc();
+
+?>
+
 <!--Double navigation-->
 <header>
     <!-- Sidebar navigation -->
@@ -35,6 +43,8 @@
                                 </li>
                                 <li><a href="../analysis/product.php" class="waves-effect">Product Stat</a>
                                 </li>
+                                <li><a href="../analysis/time-period.php" class="waves-effect">Timeperiod</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -64,13 +74,13 @@
         </div>
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
-            <p>POS | โปรแกรมจัดการร้านค้า</p>
+            <p><?php echo $row['shop_name'];?></p>
         </div>
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link"><i class="fas fa-comments"></i> <span
                         class="clearfix d-none d-sm-inline-block">Support</span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="../accounts/index.php"><i class="fas fa-user"></i> <span
                         class="clearfix d-none d-sm-inline-block">Account</span></a>

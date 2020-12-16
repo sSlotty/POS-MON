@@ -96,7 +96,7 @@
                     <div class="col-lg-3 col-md-6 mb-4">
 
                         <div class="media white z-depth-1 rounded">
-                            <i class="fas fa-download fa-lg pink z-depth-1 p-4 rounded-left text-white mr-3"></i>
+                            <i class="fas fa-database fa-lg pink z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
                                 <p class="text-uppercase text-muted mb-1"><small>ยอดขายรวมทั้งหมด</small></p>
                                 <h5 class="font-weight-bold mb-0"><?php echo number_format($row_all['sum_money'],2);?>

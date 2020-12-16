@@ -96,7 +96,7 @@ if(!($recipt_id)){
                 <div class="view view-cascade gradient-card-header blue-gradient">
 
                     <!-- Title -->
-                    <h2 class="card-header-title mb-3">Recipt Detail</h2>
+                    <h2 class="card-header-title mb-3">Receipt Detail</h2>
                     <!-- Subtitle -->
                     <p class="card-header-subtitle mb-0"><?php echo '#'.$recipt_id; ?></p>
 
@@ -132,7 +132,7 @@ if(!($recipt_id)){
                                             <td><?php echo $row['product_id'];?></td>
                                             <td><?php echo $row['product_name'];?></td>
                                             <td><?php echo $row['price'];?> ฿</td>
-                                            <td><?php echo $row['amount'];?></td>
+                                            <td><?php echo $row['amount'];?> ฿</td>
                                             <?php 
                                            $a = $row['amount'];
                                            $b = $row['price'];
@@ -151,7 +151,7 @@ if(!($recipt_id)){
                             <div class="view view-cascade gradient-card-header blue-gradient">
 
                                 <!-- Title -->
-                                <h2 class="card-header-title mb-3"><?php  echo $row2['total'];  ?></h2>
+                                <h2 class="card-header-title mb-3"><?php  echo $row2['total'];  ?> ฿</h2>
                                 <!-- Subtitle -->
                                 <p class="card-header-subtitle mb-0">ยอดเงินรวม</p>
 

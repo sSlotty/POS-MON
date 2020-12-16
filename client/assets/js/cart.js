@@ -250,7 +250,7 @@ $('.check-out').on('click', function () {
                                 icon: 'success',
                                 title: 'ชำระเงินสำเร็จ',
                                 html: `
-                                <div class="text-left">จำนวนเงิน : `+ response.total + `</br>Revice : ` + response.income + `</br>Change : ` + response.change + `</br><div class="text-danger">Discount : ` + response.before_dis +`(`+ response.discount+`%)</div>`+ `</br>Receipts number : ` + response.receipt + `</br>` + `</div>`,
+                                <div class="text-left">จำนวนเงิน : `+ response.total + `</br>Revice : ` + response.income + `</br>Change : ` + response.change + `</br>Receipts number : ` + response.receipt + `</br>` + `</div>`,
                                 footer: '<a href="'+ response.link +'">รายละเอียดการซื้อสินค้า?</a>'
                               }).then(function () {
                                 shoppingCart.clearCart();

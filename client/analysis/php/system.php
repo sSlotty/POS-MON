@@ -52,5 +52,61 @@ if($_POST['data'] == 'All'){
     $result = $conn->query($sql) or die($conn->error);
     $row = $result->fetch_assoc();
     echo json_encode(["status"=>true,"year"=>$row['year'],"Jan"=>$row['1'],"Feb"=>$row['2'],"Mar"=>$row['3'],"Apr"=>$row['4'],"May"=>$row['5'],"Jun"=>$row['6'],"Jul"=>$row['7'],"Aug"=>$row['8'],"Sep"=>$row['9'],"Oct"=>$row['10'],"Nov"=>$row['11'],"Dec"=>$row['12']]);
+}else if($_POST['data'] == 'period'){
+    
+    // $start = $_POST['start'];
+    // $end = $_POST['end'];
+
+    $start = new DateTime($_POST['start']);
+    $end = new DateTime($_POST['end']);
+
+    $sql = "SELECT sum(total) as total FROM simple_receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end->format('Y-m-d')."' AND shop_id = '".$shop_id."';";
+    $result = $conn->query($sql) or die($conn->error);
+    $row = $result->fetch_assoc();
+
+    $sql2 = "SELECT count(id) as total FROM receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end->format('Y-m-d')."' AND shop_id = '".$shop_id."';";
+    $result2 = $conn->query($sql2) or die($conn->error);
+    $row2 = $result2->fetch_assoc();
+
+    echo json_encode(["status"=>true,"total_money"=>$row['total'],"total_product"=>$row2['total']]);
+    $now = date("h:i:sa");
+    $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end->format('Y-m-d') ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
+    sendLine($text);
+}else{
+
 }
+
+function sendLine($text){
+    ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	date_default_timezone_set("Asia/Bangkok");
+
+	$sToken = "5NjPpzU7gXEaTKPa0S68WG4C4k6gKwIu1NadB9c7vPH";
+	$sMessage = $text;
+
+	
+	$chOne = curl_init(); 
+	curl_setopt( $chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify"); 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYHOST, 0); 
+	curl_setopt( $chOne, CURLOPT_SSL_VERIFYPEER, 0); 
+	curl_setopt( $chOne, CURLOPT_POST, 1); 
+	curl_setopt( $chOne, CURLOPT_POSTFIELDS, "message=".$sMessage); 
+	$headers = array( 'Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$sToken.'', );
+	curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers); 
+	curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
+	$result = curl_exec( $chOne ); 
+
+	//Result error 
+	// if(curl_error($chOne)) 
+	// { 
+	// 	echo 'error:' . curl_error($chOne); 
+	// } 
+	// else { 
+	// 	$result_ = json_decode($result, true); 
+	// 	echo "status : ".$result_['status']; echo "message : ". $result_['message'];
+	// } 
+	curl_close( $chOne );   
+}
+
 ?>
