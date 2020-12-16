@@ -33,12 +33,12 @@
             // $cookie_value = $username;
             // setcookie('UserID', $cookie_value, time() + (86400 * 30), "/");
 
-            echo json_encode(["status"=>true,"message"=>"Login !"]);
+            echo json_encode(["status"=>true,"message"=>"Login!"]);
         } else {
-            echo json_encode(["status"=>false,"message"=>"Login ไม่สำเร็จ !"]);
+            echo json_encode(["status"=>false,"message"=>"Login failed!"]);
         }
     } else {
-        echo json_encode(["status"=>false,"message"=>"ไม่พบบัญชีผู้ใช้งาน !"]);
+        echo json_encode(["status"=>false,"message"=>"The user account can't be found!"]);
     }
     
     header('Refresh:0; url= ../../index.php');

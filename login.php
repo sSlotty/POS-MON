@@ -41,7 +41,7 @@
                     </div>
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit"
                         name="submit" id="submit">Login</button>
-                    <p>Not a member?
+                    <p>Don't have an account yet?
                         <a href="register.php">Register</a>
                     </p>
                 </form>

@@ -36,13 +36,13 @@
                     
 
                     if($result){
-                        echo json_encode(["status"=>true,"message"=>"สมัครสำเร็จ !"]);
+                        echo json_encode(["status"=>true,"message"=>"Successfully register!"]);
         
                     }else{
-                        echo json_encode(["status"=>false,"message"=>"ระบบผิดพลาดกรุณาติดต่อ Dev"]);
+                        echo json_encode(["status"=>false,"message"=>"System error, please contact developer"]);
                     }
                 }else{
-                    echo json_encode(["status"=>false,"message"=>"Username ซ้ำ กรุณาเลือก Username ใหม่"]);
+                    echo json_encode(["status"=>false,"message"=>"Invalid Username, please select new username"]);
                 }
             }else{
                 echo json_encode(["status"=>false,"message"=>"Invalid UserID"]);

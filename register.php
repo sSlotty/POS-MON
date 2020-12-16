@@ -53,7 +53,7 @@
                     <button class="text-center btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
                         type="submit">Register</button>
 
-                    <p class="text-center">Are you have a Username?
+                    <p class="text-center">Already have an account?
                         <a href="login.php">Login</a>
                     </p>
                 </form>
