@@ -90,106 +90,110 @@
     <main>
         <div class="container-fluid mb-5">
             <a type="button" href="product-add.php" class="btn btn-sm btn-success btn-rounded">add product</a>
-
-            <h5>Product List</h5>
-            <div class="table-responsive-lg">
-                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="th-sm">#
-                            </th>
-                            <th scope="col" class="th-sm">image
-                            </th>
-                            <th scope="col" class="th-sm">name
-                            </th>
-                            <th scope="col" class="th-sm">amount
-                            </th>
-                            <th scope="col" class="th-sm">price
-                            </th>
-                            <th scope="col" class="th-sm">type
-                            </th>
-                            <th scope="col" class="th-sm">status
-                            </th>
-                            <!-- <th scope="col" class="th-sm">created
-                            </th> -->
-                            <th scope="col" class="th-sm">Edit
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        
-                        
-                        ?>
-                        <?php 
-                        $i = 0;
-                        while($row = mysqli_fetch_array($result)){
-                            $i++;
-                        ?>
-                        <tr>
-                            <td scpre="row"><?php echo $i;?></td>
-                            <td class="text-center img-fluid shadow-2-strong"><img width="100"
-                                    src="<?php echo "../assets/images/".$row['product_image'];?>" class="rounded"
-                                    alt="..."></td>
-                            <td><?php echo $row['product_name'];?></td>
-                            <td style="<?php echo $row['product_amount'] <= 0 ? 'color: red;':''; ?>"><?php echo $row['product_amount'];?></td>
-                            <td><?php echo $row['product_price'];?></td>
-                            <td><?php echo $row['product_type'];?></td>
-                            <td>
-                                <!-- Material checked -->
-                                <div class="switch">
-                                    <label>
-                                        Off
-                                        <input type="checkbox" id="status" name="status" class="status" <?php 
-                                        if($row['status'] == "on"){
-                                            echo "checked";
-                                        }else
-                                        ?> data-id="<?php echo $row['product_id'];?>">
-                                        <span class="lever"></span> On
-
-                                    </label>
-                                </div>
-                            </td>
-                            <!-- <td><?php echo DateThai($row['created_at']);?></td> -->
-
-                            <td>
-                                <div class="btn-group btn-group-sm mt-1" role="group" aria-label="Basic example">
-                                    <a href="product-edit.php?product_id=<?php echo $row['product_id'];?>" type="button"
-                                        class="btn btn-warning btn-rounded btn-sm">Edit</a>
-                                    <a type="button" class="btn btn-danger btn-rounded btn-sm delete"
-                                        data-id="<?php echo $row['product_id'];?>">Delete</a>
-                                </div>
-                            </td>
-
-                        </tr>
-                        <?php }
-                        
-                        ?>
-
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th scope="col" class="th-sm">#
-                            </th>
-                            <th scope="col" class="th-sm">image
-                            </th>
-                            <th scope="col" class="th-sm">name
-                            </th>
-                            <th scope="col" class="th-sm">amount
-                            </th>
-                            <th scope="col" class="th-sm">price
-                            </th>
-                            <th scope="col" class="th-sm">type
-                            </th>
-                            <th scope="col" class="th-sm">status
-                            </th>
-                            <!-- <th scope="col" class="th-sm">created
-                            </th> -->
-                            <th scope="col" class="th-sm">Edit
-                            </th>
-                        </tr>
-                    </tfoot>
-                </table>
+            
+            <div class="card mb-5">
+              <div class="card-body">
+                  <h5>Product List</h5>
+                  <div class="table-responsive-lg">
+                      <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                          <thead>
+                              <tr>
+                                  <th scope="col" class="th-sm">#
+                                  </th>
+                                  <th scope="col" class="th-sm">image
+                                  </th>
+                                  <th scope="col" class="th-sm">name
+                                  </th>
+                                  <th scope="col" class="th-sm">amount
+                                  </th>
+                                  <th scope="col" class="th-sm">price
+                                  </th>
+                                  <th scope="col" class="th-sm">type
+                                  </th>
+                                  <th scope="col" class="th-sm">status
+                                  </th>
+                                  <!-- <th scope="col" class="th-sm">created
+                                  </th> -->
+                                  <th scope="col" class="th-sm">Edit
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <?php 
+                              
+                              
+                              ?>
+                              <?php 
+                              $i = 0;
+                              while($row = mysqli_fetch_array($result)){
+                                  $i++;
+                              ?>
+                              <tr>
+                                  <td scpre="row"><?php echo $i;?></td>
+                                  <td class="text-center img-fluid shadow-2-strong"><img width="100"
+                                          src="<?php echo "../assets/images/".$row['product_image'];?>" class="rounded"
+                                          alt="..."></td>
+                                  <td><?php echo $row['product_name'];?></td>
+                                  <td style="<?php echo $row['product_amount'] <= 0 ? 'color: red;':''; ?>"><?php echo $row['product_amount'];?></td>
+                                  <td><?php echo $row['product_price'];?></td>
+                                  <td><?php echo $row['product_type'];?></td>
+                                  <td>
+                                      <!-- Material checked -->
+                                      <div class="switch">
+                                          <label>
+                                              Off
+                                              <input type="checkbox" id="status" name="status" class="status" <?php 
+                                              if($row['status'] == "on"){
+                                                  echo "checked";
+                                              }else
+                                              ?> data-id="<?php echo $row['product_id'];?>">
+                                              <span class="lever"></span> On
+      
+                                          </label>
+                                      </div>
+                                  </td>
+                                  <!-- <td><?php echo DateThai($row['created_at']);?></td> -->
+      
+                                  <td>
+                                      <div class="btn-group btn-group-sm mt-1" role="group" aria-label="Basic example">
+                                          <a href="product-edit.php?product_id=<?php echo $row['product_id'];?>" type="button"
+                                              class="btn btn-warning btn-rounded btn-sm">Edit</a>
+                                          <a type="button" class="btn btn-danger btn-rounded btn-sm delete"
+                                              data-id="<?php echo $row['product_id'];?>">Delete</a>
+                                      </div>
+                                  </td>
+      
+                              </tr>
+                              <?php }
+                              
+                              ?>
+      
+                          </tbody>
+                          <tfoot>
+                              <tr>
+                                  <th scope="col" class="th-sm">#
+                                  </th>
+                                  <th scope="col" class="th-sm">image
+                                  </th>
+                                  <th scope="col" class="th-sm">name
+                                  </th>
+                                  <th scope="col" class="th-sm">amount
+                                  </th>
+                                  <th scope="col" class="th-sm">price
+                                  </th>
+                                  <th scope="col" class="th-sm">type
+                                  </th>
+                                  <th scope="col" class="th-sm">status
+                                  </th>
+                                  <!-- <th scope="col" class="th-sm">created
+                                  </th> -->
+                                  <th scope="col" class="th-sm">Edit
+                                  </th>
+                              </tr>
+                          </tfoot>
+                      </table>
+                  </div>
+              </div>
             </div>
         </div>
     </main>

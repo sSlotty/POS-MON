@@ -56,8 +56,6 @@ if($_POST['data'] == 'All'){
     echo json_encode(["status"=>true,"year"=>$row['year'],"Jan"=>$row['1'],"Feb"=>$row['2'],"Mar"=>$row['3'],"Apr"=>$row['4'],"May"=>$row['5'],"Jun"=>$row['6'],"Jul"=>$row['7'],"Aug"=>$row['8'],"Sep"=>$row['9'],"Oct"=>$row['10'],"Nov"=>$row['11'],"Dec"=>$row['12']]);
 }else if($_POST['data'] == 'period'){
     
-    // $start = $_POST['start'];
-    // $end = $_POST['end'];
 
     $start = new DateTime($_POST['start']);
     $end = new DateTime($_POST['end']);
@@ -71,23 +69,25 @@ if($_POST['data'] == 'All'){
     $row2 = $result2->fetch_assoc();
 
     echo json_encode(["status"=>true,"total_money"=>$row['total'],"total_product"=>$row2['total']]);
+    $now = date("h:i:sa");
+    $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end->format('Y-m-d') ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
     
-
-    // $sql = "SELECT line_notify FROM members WHERE user_id = '".$user_id."'";
-    // $result = $conn->query($sql) or die($conn->error);
-    // $row = $result->fetch_assoc();
-
-    // if(!empty($row['line_notify'])){
-
-    //     $line = $row['line_notify'];
-    //     $now = date("h:i:sa");
-    //     sendLine($text,$line);
-
-    // }else{
-    //     echo json_encode(["status"=>false,"message"=>"Your line notify is valid"]);
-
-    // }
     
+   
+    $sql_3 = "SELECT line_notify FROM members WHERE user_id = '".$user_id."'";
+    $result_3 = $conn->query($sql_3) or die($conn->error);
+    $row_3 = $result_3->fetch_assoc();
+
+
+    if(!empty($row_3['line_notify'])){
+     
+        $line = $row_3['line_notify'];
+        $now = date("h:i:sa");
+        sendLine($text,$line);
+
+    }
+
+
 }else{
 
 }
@@ -113,15 +113,15 @@ function sendLine($text,$line){
 	curl_setopt( $chOne, CURLOPT_RETURNTRANSFER, 1); 
 	$result = curl_exec( $chOne ); 
 
-	//Result error 
-	// if(curl_error($chOne)) 
-	// { 
-	// 	echo 'error:' . curl_error($chOne); 
-	// } 
-	// else { 
-	// 	$result_ = json_decode($result, true); 
-	// 	echo "status : ".$result_['status']; echo "message : ". $result_['message'];
-	// } 
+	// Result error
+	if(curl_error($chOne)) 
+	{ 
+        // echo json_encode(["status"=>false,"message"=>curl_error($chOne)]);
+	} 
+	else { 
+		// $result_ = json_decode($result, true); 
+		// echo "status : ".$result_['status']; echo "message : ". $result_['message'];
+	} 
 	curl_close( $chOne );   
 }
 

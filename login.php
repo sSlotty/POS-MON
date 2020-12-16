@@ -17,15 +17,23 @@
     <link rel="stylesheet" href="node_modules/FontAwesomePro/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="assets/style.css">
-
+    <style>
+        body {
+            background: url("https://images.unsplash.com/photo-1573002922402-c8f094eebf16?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body class="fixed-sn">
 
     <!--Main layout-->
-        <div class="container mb-5 mt-5">
+    <div class="container mb-5 mt-5">
         <div class="card">
-            <h5 class="card-header info-color white-text text-center py-4">
+            <h5 class="card-header white-text text-center py-4" style="background-color: #003559;">
                 <strong>Sign in</strong>
             </h5>
             <div class="card-body px-lg-5 pt-0">
@@ -39,7 +47,7 @@
                         <input type="password" id="password" name="password" class="form-control" required>
                         <label for="password">Password</label>
                     </div>
-                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit"
+                    <button class="btn btn-outline-primary btn-rounded my-4 waves-effect z-depth-0" type="submit"
                         name="submit" id="submit">Login</button>
                     <p>Don't have an account yet?
                         <a href="register.php">Register</a>
@@ -49,8 +57,8 @@
             </div>
 
         </div>
-        </div>
-    
+    </div>
+
     <!--/Main layout-->
 
     <!-- Footer -->
@@ -65,7 +73,7 @@
     <script src="node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="assets/js/login.js"></script>
-    
+
 </body>
 
 </html>

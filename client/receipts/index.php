@@ -74,54 +74,57 @@
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
-
-            <h5>Receipt List</h5>
-            <div class="table-responsive-lg">
-                <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0"
-                    width="100%">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="th-sm">#
-                            </th>
-                            <th scope="col" class="th-sm">Receipt ID
-                            </th>
-                            <th scope="col" class="th-sm">Date
-                            </th>
-                            <th scope="col" class="th-sm">Detail
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        $i = 0;
-                        while($row = mysqli_fetch_array($result)){
-                            $i++;
-                        ?>
-                        <tr>
-                        <td scpre="row"><?php echo $i;?></td>
-                            <td scpre="row">#<?php echo $row['receipt_id'];?></td>
-                            <td><?php echo DateThai($row['created_at']);?></td>
-                            <td><a type="button" href="reciept-detail.php?recipt_id=<?php echo $row['receipt_id'];?>"
-                                    class="btn btn-deep-orange btn-md"><i class="fad fa-search"></i>View</a></td>
-                        </tr>
-                        <?php }?>
-
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                        <th scope="col" class="th-sm">#
-                            </th>
-                            <th scope="col" class="th-sm">Receipt ID
-                            </th>
-                            <th scope="col" class="th-sm">Date
-                            </th>
-                            <th scope="col" class="th-sm">Detail
-                            </th>
-
-                        </tr>
-                    </tfoot>
-                </table>
+            <div class="card text-left">
+              <div class="card-body">
+                  <h5>Receipt List</h5>
+                  <div class="table-responsive-lg">
+                      <table id="dataTable" class="table table-hover table-striped table-bordered table-sm " cellspacing="0"
+                          width="100%">
+                          <thead>
+                              <tr>
+                                  <th scope="col" class="th-sm">#
+                                  </th>
+                                  <th scope="col" class="th-sm">Receipt ID
+                                  </th>
+                                  <th scope="col" class="th-sm">Date
+                                  </th>
+                                  <th scope="col" class="th-sm">Detail
+                                  </th>
+      
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <?php 
+                              $i = 0;
+                              while($row = mysqli_fetch_array($result)){
+                                  $i++;
+                              ?>
+                              <tr>
+                              <td scpre="row"><?php echo $i;?></td>
+                                  <td scpre="row">#<?php echo $row['receipt_id'];?></td>
+                                  <td><?php echo DateThai($row['created_at']);?></td>
+                                  <td><a type="button" href="reciept-detail.php?recipt_id=<?php echo $row['receipt_id'];?>"
+                                          class="btn btn-deep-orange btn-md"><i class="fad fa-search"></i>View</a></td>
+                              </tr>
+                              <?php }?>
+      
+                          </tbody>
+                          <tfoot>
+                              <tr>
+                              <th scope="col" class="th-sm">#
+                                  </th>
+                                  <th scope="col" class="th-sm">Receipt ID
+                                  </th>
+                                  <th scope="col" class="th-sm">Date
+                                  </th>
+                                  <th scope="col" class="th-sm">Detail
+                                  </th>
+      
+                              </tr>
+                          </tfoot>
+                      </table>
+                  </div>
+              </div>
             </div>
         </div>
     </main>

@@ -1,6 +1,7 @@
 <?php 
  include_once('../../connect.php');
  require_once('../authen.php');
+ $user_id = $_SESSION['UserID'];
 
 
 ?>
@@ -43,6 +44,10 @@
                         <label for="end-date">End</label>
                     </div>
                 </div>
+                <div class="col-12">
+                <p class="text-danger">ระบบจะส่งข้อมูลเข้า line notify อัติโนมัติหากเพิ่ม token <a href="../accounts/">เพิ่ม</a></p>
+                </div>
+                <br>
 
                 <button type="button" class="ml-3 btn btn-dark-green" onclick="search()">Search</button>
 
@@ -102,10 +107,10 @@
         });
 
         function search() {
+
             var start = $('#start-date').val();
             var end = $('#end-date').val();
-
-            console.log("Start  " + start + "End " + end);
+            
 
             if (start == '' || end == '') {
                 Swal.fire({
@@ -120,7 +125,7 @@
                     text: 'กรุณากรอกช่วงเวลาให้ถูกต้อง',
                 })
             } else {
-                console.log('this loop')
+
                 $.ajax({
                     url: 'php/system.php',
                     type: 'POST',
@@ -133,7 +138,7 @@
                         if (data.status) {
                             $('.money-total').text(data.total_money)
                             $('.product-total').text(data.total_product)
-                             const Toast = Swal.mixin({
+                            const Toast = Swal.mixin({
                                 toast: true,
                                 position: 'top-end',
                                 showConfirmButton: false,
@@ -149,7 +154,7 @@
 
                             Toast.fire({
                                 icon: 'success',
-                                title: 'Load data'
+                                title: 'Successfully load data!'
                             })
                         } else {
 

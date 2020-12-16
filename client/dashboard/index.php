@@ -30,7 +30,7 @@ $shop_id = $_SESSION['ShopID'];
             margin: 0;
 
         }
- 
+
         tr:hover {
             -webkit-box-shadow: 2px 3px 108px -17px rgba(0, 0, 0, 0.25);
             -moz-box-shadow: 2px 3px 108px -17px rgba(0, 0, 0, 0.25);
@@ -38,12 +38,12 @@ $shop_id = $_SESSION['ShopID'];
 
 
         }
+
         .break {
             word-break: break-all;
         }
-        .bg-1{
-            backgroud-color: rgba(63, 81, 181, 0.7);
-        }
+
+     
     </style>
 </head>
 
@@ -58,7 +58,7 @@ $shop_id = $_SESSION['ShopID'];
             <div class="row ">
                 <div class="col-md-8 mb-4">
                     <div class="card card-cascade">
-                        <div class="view view-cascade gradient-card-header blue-gradient">
+                        <div class="view view-cascade gradient-card-header bg-primary">
                             <h5>Products</h5>
                         </div>
                     </div>
@@ -100,7 +100,8 @@ $shop_id = $_SESSION['ShopID'];
                                                     ?>
                                         <tr>
 
-                                            <td scope="col" class="text-center img-fluid shadow-2-strong img-sm"><img width="100"
+                                            <td scope="col" class="text-center img-fluid shadow-2-strong img-sm"><img
+                                                    width="100"
                                                     src="<?php echo "../assets/images/".$row['product_image'];?>"
                                                     class="rounded" alt="..."></td>
                                             <td><?php echo $row['product_name'];?></td>
@@ -133,7 +134,7 @@ $shop_id = $_SESSION['ShopID'];
                                             </th>
                                             <th scope="col" class="th-sm">Amount
                                             </th>
-                                           
+
                                             <th scope="col" class="th-sm">Action
                                             </th>
 
@@ -152,7 +153,7 @@ $shop_id = $_SESSION['ShopID'];
 
                 <div class="col-md-4 mb-4">
                     <div class="card card-cascade">
-                        <div class="view view-cascade gradient-card-header gradient-card-header blue-gradient">
+                        <div class="view view-cascade gradient-card-header gradient-card-header bg-warning">
                             <h5>Total price : <span class="total-cart"></span> ฿</h5>
 
                         </div>
