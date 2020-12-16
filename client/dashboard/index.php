@@ -56,7 +56,7 @@ $shop_id = $_SESSION['ShopID'];
                 <div class="col-md-8 mb-4">
                     <div class="card card-cascade">
                         <div class="view view-cascade gradient-card-header blue-gradient">
-                            <h5>Product</h5>
+                            <h5>Products</h5>
                         </div>
                     </div>
 

@@ -28,7 +28,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis</title>
+    <title>Sales statistics</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -56,7 +56,7 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="far fa-money-bill-alt fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย วันนี้</small></p>
+                                <p class="text-uppercase text-muted mb-1"><small>Daily sales</small></p>
                                 <h5 class="font-weight-bold mb-0">
                                     <?php echo number_format($row_today['total_today'],2);?></h5>
                             </div>
@@ -71,7 +71,7 @@
                             <i
                                 class="fas fa-chart-bar fa-lg deep-purple z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขาย อาทิตย์ที่ผ่านมา</small></p>
+                                <p class="text-uppercase text-muted mb-1"><small>Weekly sales</small></p>
                                 <h5 class="font-weight-bold mb-0">
                                     <?php echo number_format($row_lastweek['total_lastweek'],2);?></h5>
                             </div>
@@ -85,7 +85,7 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-chart-pie fa-lg teal z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายเดือนที่ผ่านมา</small></p>
+                                <p class="text-uppercase text-muted mb-1"><small>Monthly sales</small></p>
                                 <h5 class="font-weight-bold mb-0">
                                     <?php echo number_format($row_lastMonth['total_lastMonth'],2);?></h5>
                             </div>
@@ -98,7 +98,7 @@
                         <div class="media white z-depth-1 rounded">
                             <i class="fas fa-database fa-lg pink z-depth-1 p-4 rounded-left text-white mr-3"></i>
                             <div class="media-body p-1">
-                                <p class="text-uppercase text-muted mb-1"><small>ยอดขายรวมทั้งหมด</small></p>
+                                <p class="text-uppercase text-muted mb-1"><small>Total sales</small></p>
                                 <h5 class="font-weight-bold mb-0"><?php echo number_format($row_all['sum_money'],2);?>
                                 </h5>
                             </div>
@@ -165,7 +165,7 @@
                                     'November', 'December'
                                 ],
                                 datasets: [{
-                                    label: '#Money',
+                                    label: '#Money (Baht)',
                                     data: [parseInt(response.Jan), parseInt(response.Feb), parseInt(response.Mar), parseInt(response.Apr),
                                         parseInt(response.May),
                                         parseInt(response.Jun), parseInt(response.Jul), parseInt(response.Aug), parseInt(response.Sep),

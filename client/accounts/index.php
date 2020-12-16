@@ -61,7 +61,7 @@
             
                             <!-- Form -->
                             <form action="#!" class="mt-5">
-                                <h5 class="text-left">ข้อมูลผู้ใช้งาน</h5>
+                                <h5 class="text-left">User information</h5>
                                 <hr>
                                 <!-- Email -->
                                 <div class="md-form">
@@ -94,7 +94,7 @@
                                 </div>
                                 <br>
                                 <br>
-                                <h5 class="text-left">ข้อมูลร้านค้า</h5>
+                                <h5 class="text-left">Shop information</h5>
                                 <hr>
 
                                 <!-- Password -->

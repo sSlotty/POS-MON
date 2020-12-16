@@ -30,7 +30,7 @@ $row_show_data = $result_show_data->fetch_assoc();
                                 style="font-size:25px; margin-right:20px;"></i>Product Management</a>
                     </li>
                     <li><a class="waves-effect" href="../receipts/"> <i class="fad fa-file-invoice"
-                                style="margin-right: 30px; font-size:30px;"></i>Receipts</a>
+                                style="margin-right: 30px; font-size:30px;"></i>Receipt</a>
                     </li>
                     <!-- <li><a class="waves-effect" href="../coupon/"> <i class="fab fa-slack-hash"
                                 style="margin-right: 25px; font-size:30px;"></i>Coupon</a>

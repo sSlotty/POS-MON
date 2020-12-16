@@ -53,7 +53,7 @@
                     <div class="media white z-depth-1 rounded">
                         <i class="far fa-money-bill-alt fa-lg blue z-depth-1 p-4 rounded-left text-white mr-3"></i>
                         <div class="media-body p-1">
-                            <p class="text-uppercase text-muted mb-1"><small>ยอดขายรวมทั้งหมด</small></p>
+                            <p class="text-uppercase text-muted mb-1"><small>Total sales (Baht)</small></p>
                             <h5 class="font-weight-bold mb-0 money-total"></h5>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="media white z-depth-1 rounded">
                         <i class="fas fa-chart-bar fa-lg deep-purple z-depth-1 p-4 rounded-left text-white mr-3"></i>
                         <div class="media-body p-1">
-                            <p class="text-uppercase text-muted mb-1"><small>สินค้าที่ขายได้ทั้งหมด</small></p>
+                            <p class="text-uppercase text-muted mb-1"><small>Total sales (Amount)</small></p>
                             <h5 class="font-weight-bold mb-0 product-total"></h5>
                         </div>
                     </div>

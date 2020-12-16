@@ -193,7 +193,7 @@ function displayCart() {
         output += "<tr>" +
             `<th scope="row" class="text-sm">#` + cartArray[i].id + `</th>` +
             `<td>` + cartArray[i].name + `</td>` +
-            `<td>` + cartArray[i].price + `฿</td>` +
+            `<td>` + cartArray[i].price + ` ฿</td>` +
             `<td>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -215,7 +215,7 @@ function displayCart() {
             "<td>" + cartArray[i].name + "</td>" +
             "<td> (ราคา " + cartArray[i].price + " / ชิ้น)</td>" +
             "<td> จำนวน : " + cartArray[i].count + "</td>" +
-            "<td> Total : " + cartArray[i].total;
+            "<td> รวม : " + cartArray[i].total;
         console.log(cartArray)
 
     }
@@ -248,10 +248,10 @@ $('.check-out').on('click', function () {
                         if (response.status) {
                             Swal.fire({
                                 icon: 'success',
-                                title: 'ชำระเงินสำเร็จ',
+                                title: 'Successful payment',
                                 html: `
-                                <div class="text-left">จำนวนเงิน : `+ response.total + `</br>Revice : ` + response.income + `</br>Change : ` + response.change + `</br>Receipts number : ` + response.receipt + `</br>` + `</div>`,
-                                footer: '<a href="'+ response.link +'">รายละเอียดการซื้อสินค้า?</a>'
+                                <div class="text-left">Total : `+ response.total + ` ฿</br>Money received : ` + response.income + ` ฿</br>Change : ` + response.change + ` ฿</br>Receipt number : ` + response.receipt + `</br>` + `</div>`,
+                                footer: '<a href="'+ response.link +'">Receipt details</a>'
                               }).then(function () {
                                 shoppingCart.clearCart();
                                   displayCart();
@@ -260,7 +260,7 @@ $('.check-out').on('click', function () {
                         } else {
                             Swal.fire({
                                 icon: 'error',
-                                title: 'ชำระเงินไม่สำเร็จ',
+                                title: 'Unsuccessful payment',
                                 text: response.message,
                                 footer: '<a href>Why do I have this issue?</a>'
                             });
@@ -275,7 +275,7 @@ $('.check-out').on('click', function () {
             } else {
                 Swal.fire(
                     'Warning !',
-                    'โปรดตรวจเช็คจำนวนเงินอีกครั้ง',
+                    'Please check the amount again!',
                     'warning'
                 )
                 
@@ -284,7 +284,7 @@ $('.check-out').on('click', function () {
         } else {
             Swal.fire(
                 'Warning !',
-                'กรุณากรอกจำนวนเงิน',
+                'Please enter the amount!',
                 'warning'
             )
         }
@@ -292,7 +292,7 @@ $('.check-out').on('click', function () {
     } else {
         Swal.fire(
             'Warning !',
-            'กรุณาใส่สินค้าลงตระกร้า',
+            'Please add products to cart!',
             'warning'
         )
     }

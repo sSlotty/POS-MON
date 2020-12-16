@@ -47,7 +47,7 @@ if(!($recipt_id)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt Detail</title>
+    <title>Receipt Details</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -96,7 +96,7 @@ if(!($recipt_id)){
                 <div class="view view-cascade gradient-card-header blue-gradient">
 
                     <!-- Title -->
-                    <h2 class="card-header-title mb-3">Receipt Detail</h2>
+                    <h2 class="card-header-title mb-3">Receipt Details</h2>
                     <!-- Subtitle -->
                     <p class="card-header-subtitle mb-0"><?php echo '#'.$recipt_id; ?></p>
 
@@ -118,7 +118,7 @@ if(!($recipt_id)){
                                             <th scope="col">Name</th>
                                             <th scope="col">Price</th>
                                             <th scope="col">Amount</th>
-                                            <th scope="col">รวมเงิน</th>
+                                            <th scope="col">Total</th>
 
 
                                         </tr>
@@ -132,7 +132,7 @@ if(!($recipt_id)){
                                             <td><?php echo $row['product_id'];?></td>
                                             <td><?php echo $row['product_name'];?></td>
                                             <td><?php echo $row['price'];?> ฿</td>
-                                            <td><?php echo $row['amount'];?> ฿</td>
+                                            <td><?php echo $row['amount'];?></td>
                                             <?php 
                                            $a = $row['amount'];
                                            $b = $row['price'];
@@ -140,7 +140,7 @@ if(!($recipt_id)){
                                            
                                            ?>
 
-                                            <td><?php echo $c; ?></td>
+                                            <td><?php echo $c; ?> ฿</td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -153,12 +153,12 @@ if(!($recipt_id)){
                                 <!-- Title -->
                                 <h2 class="card-header-title mb-3"><?php  echo $row2['total'];  ?> ฿</h2>
                                 <!-- Subtitle -->
-                                <p class="card-header-subtitle mb-0">ยอดเงินรวม</p>
+                                <p class="card-header-subtitle mb-0">Total</p>
 
                             </div>
                             <div class="text-left">
                                 <button type="button" class="btn btn-dark-green btn-md">
-                                    <h5 class="mt-2">Receive : <?php  echo $row2['receive'];  ?> ฿</h5>
+                                    <h5 class="mt-2">Money received : <?php  echo $row2['receive'];  ?> ฿</h5>
                                 </button>
 
                                 <button type="button" class="btn btn-deep-orange btn-md">
