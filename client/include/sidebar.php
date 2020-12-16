@@ -24,7 +24,7 @@ $row = $result->fetch_assoc();
             <li>
                 <ul class="collapsible collapsible-accordion">
                     <li><a class="waves-effect" href="../dashboard/index.php"> <i class="fad fa-cash-register"
-                                style="margin-right: 30px; font-size:25px;"></i>หน้าจัดการขาย</a>
+                                style="margin-right: 30px; font-size:25px;"></i>Sales Management</a>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r" href="../products/index.php" ><i class="fad fa-box-full"
                                 style="font-size:25px; margin-right:20px;"></i>Product Management</a>
@@ -36,12 +36,12 @@ $row = $result->fetch_assoc();
                                 style="margin-right: 25px; font-size:30px;"></i>Coupon</a>
                     </li> -->
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-analytics mr-3"
-                                style="font-size:25px; padding-right:2px;"></i> Sale stat<i class="fas fa-angle-down rotate-icon"></i></a>
+                                style="font-size:25px; padding-right:2px;"></i>Sales Statistics<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
-                                <li><a href="../analysis/index.php" class="waves-effect">หน้ารวม</a>
+                                <li><a href="../analysis/index.php" class="waves-effect">Sales (Baht)</a>
                                 </li>
-                                <li><a href="../analysis/product.php" class="waves-effect">Product Stat</a>
+                                <li><a href="../analysis/product.php" class="waves-effect">Sales (Amount)</a>
                                 </li>
                                 <li><a href="../analysis/time-period.php" class="waves-effect">Timeperiod</a>
                                 </li>
@@ -54,7 +54,7 @@ $row = $result->fetch_assoc();
                             <i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
-                                <li><a href="../accounts/index.php" class="waves-effect">MyAccount</a>
+                                <li><a href="../accounts/index.php" class="waves-effect">My Account</a>
                                 </li>
                             </ul>
                         </div>

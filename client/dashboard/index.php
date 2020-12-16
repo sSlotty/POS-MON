@@ -56,7 +56,7 @@ $shop_id = $_SESSION['ShopID'];
                 <div class="col-md-8 mb-4">
                     <div class="card card-cascade">
                         <div class="view view-cascade gradient-card-header blue-gradient">
-                            <h5>สินค้าทั้งหมด</h5>
+                            <h5>Product</h5>
                         </div>
                     </div>
 
@@ -217,7 +217,7 @@ $shop_id = $_SESSION['ShopID'];
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Amount</th>
-                                    <th>รวม</th>
+                                    <th>Total</th>
                                     <th>Clear</th>
 
                                 </tr>
@@ -237,7 +237,7 @@ $shop_id = $_SESSION['ShopID'];
                             <h5 class="pl-5">Total price : <span class="total-cart"></span> ฿</h5>
                             <div class="md-form ml-5">
                                 <input type="number" min="0" id="income" name="income" class="form-control" required>
-                                <label for="form1">จำนวนเงินรับ</label>
+                                <label for="form1">Money received</label>
                             </div>
                         </div>
                         <div class="col-md-6">

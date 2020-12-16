@@ -84,7 +84,7 @@ error_reporting(0);
                         <p><i class="fas fa-check text-success"></i> คำนวนภาษีมูลค่าเพิ่มอัตโนมัติ</p>
                         <p><i class="fas fa-check text-success"></i> ตัดสต๊อกสินค้าอัตโนมัติ</p>
                         <p><i class="fas fa-check text-success"></i> สามรถดูใบเสร็จย้อนหลังได้</p>
-                        <p><i class="fas fa-check text-success"></i> ระบบ Data Analytics</p>
+                        <p><i class="fas fa-check text-success"></i> ระบบ Data Analytics <?php print_r($_SESSION); ?></p>
                        
                     </div>
                     <div class="col-6">
