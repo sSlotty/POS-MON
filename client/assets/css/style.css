@@ -21,7 +21,9 @@ body{
     display: none;
   }
 
-.footer{
-    padding-right: 15px;
-    padding-left: 15px;
-  }
+footer {
+    position: fixed;
+    
+    bottom: 0;
+    
+}

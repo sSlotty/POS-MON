@@ -17,6 +17,41 @@ error_reporting(0);
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
+<style>
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, .125);
+        border-radius: .25rem;
+    }
+
+    .touch {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .touch .card {
+        border: none;
+        border-radius: 3rem;
+    }
+
+    @media (min-width: 992px) {
+        .touch .card:hover {
+            margin-top: -.25rem;
+            margin-bottom: .25rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            transition: .2s;
+        }
+
+    }
+</style>
 
 <body>
     <header>
@@ -70,8 +105,8 @@ error_reporting(0);
                     </div>
 
                     <div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-                        <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-admin.png" alt=""
-                            class="img-responsive">
+                        <img src="assets/pic/S__54206550.png" alt=""
+                            class="img-responsive" style="width: 500px;">
                     </div>
                 </div>
             </div>
@@ -90,7 +125,7 @@ error_reporting(0);
                 </h5>
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
 
                         <p><i class="fas fa-check text-success"></i> ระบบตระกร้าสินค้า</p>
                         <p><i class="fas fa-check text-success"></i> ตัดยอดขายรายวัน</p>
@@ -102,14 +137,14 @@ error_reporting(0);
 
 
                     </div>
-                    <div class="col-6">
-                        <img src="https://cf.shopee.co.th/file/1746412dab48f93a02d234a570163cb5" class="img-fluid"
-                            alt="Sample image with waves effect.">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <img src="assets/pic/01.png" class="img-fluid" alt="Sample image with waves effect.">
                         <div class="mask waves-effect rgba-white-slight"></div>
                     </div>
                 </div>
         </div>
         </section>
+
         <section class="my-5 wow fadeIn" data-wow-delay="0.3s">
 
             <h2 class="h1-responsive font-weight-bold text-center my-5">โปรเจคนี้จัดทำขึ้นมาโดย</h2>
@@ -118,48 +153,60 @@ error_reporting(0);
                 มหาวิทยาลัยศรีนครินทรวิโรฒ </p>
             <p class="text-center w-responsive mx-auto mb-5 grey-text">สามารถเข้ามาใช้งานและทดสอบ
                 ประสิทธิภาพของระบบได้ ฟรี</p>
-            <div class="container">
+            <div class="container-fulid ml-3 mr-3">
                 <div class="row">
 
                     <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="touch">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="zoom">
+                                                <img src="assets/pic/oat.jpg" class="img-fluid z-depth-1 rounded-circle"
+                                                    alt="zoom">
+                                                <div class="mask flex-center waves-effect waves-light">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5>Mr.Thanathip Chansri</h5>
+                                            <p>Computer Science</p>
+                                            <p>Faculy Of Science, Srinakharinwirot University</p>
 
-                        <div class="card testimonial-card">
-
-                            <div class="card-up teal lighten-2">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010027.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
-
-                            <div class="card-body">
-                                <h4 class="card-title mt-1">Thanathip Chanasri</h4>
-                            </div>
-
                         </div>
+
+
 
                     </div>
 
                     <div class="col-lg-4 col-md-12 mb-4">
-
-                        <div class="card testimonial-card">
-
-                            <div class="card-up blue lighten-2">
+                        <div class="touch">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="zoom">
+                                                <img src="assets/pic/mook.jpg"
+                                                    class="img-fluid z-depth-1 rounded-circle" alt="zoom">
+                                                <div class="mask flex-center waves-effect waves-light">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5>Miss.Prathana Khuenkhwanwong</h5>
+                                            <p>Computer Science</p>
+                                            <p>Faculy Of Science, Srinakharinwirot University</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010175.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
-
-                            <div class="card-body">
-
-                                <h4 class="card-title mt-1 text-fixed">Prathana Khuankhwawong</h4>
-
-                            </div>
-
                         </div>
+
 
 
                     </div>
@@ -167,26 +214,30 @@ error_reporting(0);
 
 
                     <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="touch">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="zoom">
+                                                <img src="assets/pic/S__3661919.jpg"
+                                                    class="img-fluid z-depth-1 rounded-circle" alt="zoom">
+                                                <div class="mask flex-center waves-effect waves-light">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5>Mr.Kittawat klittiparikun</h5>
+                                            <p>Computer Science</p>
+                                            <p>Faculy Of Science, Srinakharinwirot University</p>
 
-
-                        <div class="card testimonial-card">
-
-
-                            <div class="card-up deep-purple lighten-2"></div>
-
-
-                            <div class="avatar mx-auto white"><img
-                                    src="https://supreme.swu.ac.th/file_staff_upload/file_student_pic/2562_1/62102010429.jpg"
-                                    alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                            </div>
-
-                            <div class="card-body">
-
-                                <h4 class="card-title mt-1">Kittawat Kittiparikun</h4>
-
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
+
 
                     </div>
 

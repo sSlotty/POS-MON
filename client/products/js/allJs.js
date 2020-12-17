@@ -53,11 +53,10 @@ $(document).ready(function () {
                             Toast.fire({
                                 icon: 'success',
                                 title: data.message
+                            }).then(function () {
+                                window.location = 'index.php';
                             })
 
-                            $(el).closest('tr').fadeOut(800, function () {
-                                $(this).remove();
-                            });
                         } else {
                             const Toast = Swal.mixin({
                                 toast: true,

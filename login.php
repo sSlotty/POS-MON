@@ -25,13 +25,32 @@
             -o-background-size: cover;
             background-size: cover;
         }
+        .touch {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .touch .card {
+        border: none;
+        border-radius: 3rem;
+    }
+
+    @media (min-width: 992px) {
+        .touch .card:hover {
+            margin-top: -.25rem;
+            margin-bottom: .25rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            transition: .2s;
+        }
+
+    }
     </style>
 </head>
 
 <body class="fixed-sn">
 
     <!--Main layout-->
-    <div class="container mb-5 mt-5">
+    <div class="container mb-5 mt-5 touch">
         <div class="card">
             <h5 class="card-header white-text text-center py-4" style="background-color: #003559;">
                 <strong>Sign in</strong>

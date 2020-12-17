@@ -86,6 +86,7 @@
                             <option value="ยา/สุขภาพ/ความงาม">ยา/สุขภาพ/ความงาม</option>
                             <option value="ไอทีและมือถือ">ไอทีและมือถือ</option>
                             <option value="หนังสือ">หนังสือ</option>
+                            <option value="อื่นๆ">อื่นๆ</option>
 
                         </select>
 

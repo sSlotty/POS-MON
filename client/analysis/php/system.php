@@ -54,23 +54,26 @@ if($_POST['data'] == 'All'){
     $result = $conn->query($sql) or die($conn->error);
     $row = $result->fetch_assoc();
     echo json_encode(["status"=>true,"year"=>$row['year'],"Jan"=>$row['1'],"Feb"=>$row['2'],"Mar"=>$row['3'],"Apr"=>$row['4'],"May"=>$row['5'],"Jun"=>$row['6'],"Jul"=>$row['7'],"Aug"=>$row['8'],"Sep"=>$row['9'],"Oct"=>$row['10'],"Nov"=>$row['11'],"Dec"=>$row['12']]);
+
 }else if($_POST['data'] == 'period'){
     
 
     $start = new DateTime($_POST['start']);
     $end = new DateTime($_POST['end']);
 
-    $sql = "SELECT sum(total) as total FROM simple_receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end->format('Y-m-d')."' AND shop_id = '".$shop_id."';";
+    $end = date("Y-m-d", strtotime("+1 day",strtotime($end->format('Y-m-d'))));
+
+    $sql = "SELECT sum(total) as total FROM simple_receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end."' AND shop_id = '".$shop_id."';";
     $result = $conn->query($sql) or die($conn->error);
     $row = $result->fetch_assoc();
 
-    $sql2 = "SELECT count(id) as total FROM receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end->format('Y-m-d')."' AND shop_id = '".$shop_id."';";
+    $sql2 = "SELECT count(id) as total FROM receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end."' AND shop_id = '".$shop_id."';";
     $result2 = $conn->query($sql2) or die($conn->error);
     $row2 = $result2->fetch_assoc();
 
     echo json_encode(["status"=>true,"total_money"=>$row['total'],"total_product"=>$row2['total']]);
     $now = date("h:i:sa");
-    $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end->format('Y-m-d') ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
+    $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
     
     
    
