@@ -8,7 +8,7 @@
  $result_all = $conn->query($sql_all) or die($conn->errno);
  $row_all = $result_all->fetch_assoc();
 
- $sql_lastweek = "SELECT SUM(total) as total_lastweek FROM simple_receipt WHERE WEEK(created_at, 1) = WEEK( date_sub( curdate(), interval 7 day),1) and created_at >date_sub(curdate(), interval 14 day) and shop_id = $shop_id;";
+ $sql_lastweek = "SELECT SUM(total) as total_lastweek FROM simple_receipt WHERE WEEK(created_at, 1) = WEEK( date_sub( curdate(), interval 7 day),1) and created_at > date_sub(curdate(), interval 14 day) and shop_id = $shop_id;";
  $result_lastweek = $conn->query($sql_lastweek) or die($conn->error);
  $row_lastweek = $result_lastweek->fetch_assoc();
  
@@ -142,7 +142,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
         crossorigin="anonymous"></script>
-
+        <script src="../../assets/js/block-console.js"></script>
     <script>
         $(document).ready(function () {
             $.ajax({

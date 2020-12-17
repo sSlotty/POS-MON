@@ -28,74 +28,81 @@
         }
 
         .touch {
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-
-    .touch .card {
-        border: none;
-        border-radius: 3rem;
-    }
-
-    @media (min-width: 992px) {
-        .touch .card:hover {
-            margin-top: -.25rem;
-            margin-bottom: .25rem;
-            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-            transition: .2s;
+            margin-top: 25px;
+            margin-bottom: 25px;
         }
 
-    }
+        .touch .card {
+            border: none;
+            border-radius: 3rem;
+        }
+
+        @media (min-width: 992px) {
+            .touch .card:hover {
+                margin-top: -.25rem;
+                margin-bottom: .25rem;
+                box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+                transition: .2s;
+            }
+
+        }
     </style>
 </head>
 
-<body class="fixed-sn">
+<body>
 
     <!--Main layout-->
-    
-        <div class="container mb-5 mt-5 touch">
-            <div class="card">
-                <h5 class="card-header white-text text-center py-4" style="background-color: #003559;">
-                    <strong>Register</strong>
-                </h5>
-                <div class="card-body px-lg-5 pt-0">
 
-                    <form class="text-center" method="POST" action="assets/php/register.php" id="form">
+    <div class="container mb-5 mt-5 touch">
+        <div class="card">
+            <h5 class="card-header white-text text-center py-4" style="background-color: #003559;">
+                <strong>Register</strong>
+            </h5>
+            <div class="card-body px-lg-5 pt-0">
 
-                        <div class="md-form">
-                            <input type="email" id="email" name="email" class="form-control" required>
-                            <label for="email">Email</label>
-                        </div>
+                <form class="text-center" method="POST" action="assets/php/register.php" id="form">
 
-                        <div class="md-form">
-                            <input type="text" id="username" name="username" class="form-control" required>
-                            <label for="username">Username</label>
-                        </div>
+                    <div class="md-form">
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label for="email">Email</label>
+                    </div>
 
-                        <div class="md-form">
-                            <input type="password" id="password" name="password" class="form-control" required>
-                            <label for="password">Password</label>
-                        </div>
+                    <div class="md-form">
+                        <input type="text" id="username" name="username" class="form-control" required>
+                        <label for="username">Username</label>
+                    </div>
+
+                    <div class="md-form">
+                        <input type="password" id="password" name="password" class="form-control" required>
+                        <label for="password">Password</label>
+                    </div>
 
 
-                        <button
-                            class="btn btn-outline-primary btn-rounded my-4 waves-effect z-depth-0"
-                            type="submit">Register</button>
+                    <button class="btn btn-outline-primary btn-rounded my-4 waves-effect z-depth-0"
+                        type="submit">Register</button>
 
-                        <p class="text-center">Already have an account?
-                            <a href="login.php">Login</a>
-                        </p>
-                    </form>
-
-                </div>
+                    <p class="text-center">Already have an account?
+                        <a href="login.php">Login</a>
+                    </p>
+                </form>
 
             </div>
+
         </div>
-    
+    </div>
+
     <!--/Main layout-->
 
     <!-- Footer -->
+    <footer class=" fixed-bottom page-footer pt-4 mt-4 text-center text-md-left" style="background-color: #003559;">
 
+        <div class="footer-copyright text-center py-3 wow fadeIn" data-wow-delay="0.3s">
+            <div class="container-fluid">
+                &copy; 2020 Copyright: <a href=""> MON studio </a>
+            </div>
+        </div>
+
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -106,6 +113,7 @@
     <script src="node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="assets/js/register.js"></script>
+    <script src="assets/js/block-console.js"></script>
 
 </body>
 

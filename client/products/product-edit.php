@@ -153,7 +153,7 @@ if($numrow == 0){
     <script src="../assets/js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/edit.js"></script>
-
+    <script src="../../assets/js/block-console.js"></script>
     <script>
         
         function readURL(input) {

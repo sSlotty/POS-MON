@@ -59,19 +59,20 @@ if($_POST['data'] == 'All'){
     
 
     $start = new DateTime($_POST['start']);
-    $end = new DateTime($_POST['end']);
+    $end1 = new DateTime($_POST['end']);
 
-    $end = date("Y-m-d", strtotime("+1 day",strtotime($end->format('Y-m-d'))));
+    $end = date("Y-m-d", strtotime("+1 day",strtotime($end1->format('Y-m-d'))));
 
     $sql = "SELECT sum(total) as total FROM simple_receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end."' AND shop_id = '".$shop_id."';";
     $result = $conn->query($sql) or die($conn->error);
     $row = $result->fetch_assoc();
 
-    $sql2 = "SELECT count(id) as total FROM receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end."' AND shop_id = '".$shop_id."';";
+    $sql2 = "SELECT sum(amount) as total FROM receipt WHERE created_at BETWEEN '".$start->format('Y-m-d')."' AND '".$end."' AND shop_id = '".$shop_id."';";
     $result2 = $conn->query($sql2) or die($conn->error);
     $row2 = $result2->fetch_assoc();
 
     echo json_encode(["status"=>true,"total_money"=>$row['total'],"total_product"=>$row2['total']]);
+
     $now = date("h:i:sa");
     $text = "\nยอดขายระหว่างวันที่\n". $start->format('Y-m-d') ." ถึง ". $end ."\nข้อมูล ณ เวลา {$now}\n --------------------- \n"."ยอดเงินรวม : {$row['total']} \n ยอดสินค้าที่ขายได้รวม : {$row2['total']}";
     

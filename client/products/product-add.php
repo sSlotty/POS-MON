@@ -150,7 +150,7 @@
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/formdata.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.20/FormData.min.js"></script>
 
-
+    <script src="../../assets/js/block-console.js"></script>
     <script src="js/add.js"></script>
 
 

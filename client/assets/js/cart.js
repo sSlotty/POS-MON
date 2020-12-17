@@ -51,6 +51,7 @@ var shoppingCart = (function () {
         cart.push(item);
         saveCart();
     }
+
     // Set count from item
     obj.setCountForItem = function (name, count) {
         for (var i in cart) {
@@ -60,6 +61,7 @@ var shoppingCart = (function () {
             }
         }
     };
+
     // Remove item from cart
     obj.removeItemFromCart = function (name) {
         for (var item in cart) {
@@ -211,6 +213,7 @@ function displayCart() {
                     class="fad fa-trash-restore" style="font-size: 15px;"></i></button></td>
 
     </tr>`;
+
         outputSimple += "<tr>" +
             "<td>" + cartArray[i].name + "</td>" +
             "<td> (ราคา " + cartArray[i].price + " / ชิ้น)</td>" +
@@ -239,6 +242,7 @@ $('.check-out').on('click', function () {
         if (pareIncome > 0) {
 
             if (pareIncome >= shoppingCart.totalCart()) {
+
                 $.ajax({
                     url: '../assets/php/check-out.php',
                     type: 'POST',
@@ -254,8 +258,8 @@ $('.check-out').on('click', function () {
                                 footer: '<a href="'+ response.link +'">Receipt details</a>'
                               }).then(function () {
                                 shoppingCart.clearCart();
-                                  displayCart();
-                                  location.reload();
+                                displayCart();
+                                location.reload();
                             })
                         } else {
                             Swal.fire({

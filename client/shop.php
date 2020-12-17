@@ -111,6 +111,7 @@
     <script src="../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="assets/js/create_shop.js"></script>
+    <script src="../assets/js/block-console.js"></script>
 
 </body>
 

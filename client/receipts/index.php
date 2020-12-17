@@ -146,7 +146,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="js/allJs.js"></script>
-
+    <script src="../../assets/js/block-console.js"></script>
+    
     <script>
         $('#dataTable').DataTable({
             "order": [0, 'asc'],

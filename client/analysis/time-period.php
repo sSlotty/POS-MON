@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                <p class="text-danger">ระบบจะส่งข้อมูลเข้า line notify อัติโนมัติหากเพิ่ม token <a href="../accounts/">เพิ่ม</a></p>
+                <p class="text-danger">ระบบจะส่งข้อมูลเข้า line notify อัตโนมัติหากเพิ่ม token <a href="../accounts/">เพิ่ม</a></p>
                 </div>
                 <br>
 
@@ -96,7 +96,8 @@
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="../../assets/js/block-console.js"></script>
+    
     <script>
         $(document).ready(function () {
             $('.datepicker').pickadate({

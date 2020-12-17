@@ -156,7 +156,7 @@
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-
+    <script src="../../assets/js/block-console.js"></script>
 </body>
 
 </html>

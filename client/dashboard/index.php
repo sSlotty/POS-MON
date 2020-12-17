@@ -3,9 +3,9 @@ include_once('../../connect.php');
 require_once('../authen.php');
 
 $shop_id = $_SESSION['ShopID'];
- $sql = "SELECT * FROM products WHERE id_shop = '".$shop_id."' AND product_amount > 0 AND status = 'on'";
+$sql = "SELECT * FROM products WHERE id_shop = '".$shop_id."' AND product_amount > 0 AND status = 'on'";
 
- $result = mysqli_query($conn,$sql);
+$result = mysqli_query($conn,$sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +108,8 @@ $shop_id = $_SESSION['ShopID'];
                                             <td><?php echo $row['product_price'];?></td>
                                             <td><?php echo $row['product_amount'];?></td>
                                             <td>
-                                                <a href="#" data-name="<?php echo $row['product_name'];?>"
+                                                <a href="#" 
+                                                    data-name="<?php echo $row['product_name'];?>"
                                                     data-amount="<?php echo $row['product_amount'];?>"
                                                     data-price="<?php echo $row['product_price'];?>"
                                                     data-id="<?php echo $row['product_id'];?>" data-shop="12345678910"
@@ -284,6 +285,8 @@ $shop_id = $_SESSION['ShopID'];
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
     </script>
     <script src="../assets/js/cart.js"></script>
+    <script src="../../assets/js/block-console.js"></script>
+    
     <script>
         $('#dataTable').DataTable({
             "order": [0, 'asc']

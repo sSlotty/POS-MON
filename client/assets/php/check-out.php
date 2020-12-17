@@ -4,6 +4,7 @@ header("Content-type: application/json; charset=utf-8");
 
 $obj = array($_POST['cart']);
 $shop_id = $_SESSION['ShopID'];
+
 $receipt_id = rand(0,99999) * 99999999;
 $discount = 0;
 
@@ -81,6 +82,7 @@ VALUES ('".$receipt_id."', '".$AllTotal."','".$money."','".$change."','".$shop_i
 $result_total = $conn->query($total_sql) or die($conn->error);
 
 $tag_a = "../receipts/reciept-detail.php?recipt_id=$receipt_id";
+
 if($result){
 
   if($result_total){

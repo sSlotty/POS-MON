@@ -252,7 +252,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="../../assets/js/block-console.js"></script>
 
     <script>
         $('#dataTable').DataTable({
