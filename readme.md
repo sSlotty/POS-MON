@@ -1,4 +1,4 @@
-#MON-POS (Thanathip POS System)
+# MON-POS (Thanathip POS System)
 
 MON-POS is a Point-of-Sale (POS) system designed for retail businesses. This guide provides step-by-step instructions for installing and running the project locally using XAMPP and PHP.
 
