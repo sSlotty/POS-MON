@@ -1,33 +1,24 @@
-การติดตั้ง MON-POS
+# MON-POS (Thanathip POS System)
 
-โปรแกรมที่ต้องใช้ในการติดตั้ง
- - XAMMP
- - PHP
+MON-POS is a Point-of-Sale (POS) system designed for retail businesses. This guide provides step-by-step instructions for installing and running the project locally using XAMPP and PHP.
 
-ขั้นตอนการติดตั้ง
+---
 
-หากมีไฟล์ project อยู่แล้ว ข้ามข้อที่ 1 
+## 📦 Prerequisites
 
-1. git clone https://gitlab.com/slotty.dev/pos.git
+Before you begin, ensure the following tools are installed:
 
-2. นำไฟล์โปรเจคไปติดตั้งที่ xampp/htdocs
+- [XAMPP](https://www.apachefriends.org/index.html)
+- PHP (included with XAMPP)
+- Git
 
-3. นำไฟล์ thanathi_pos.sql ไปติดตั้งที่ localhost/phpmyadmin
+---
 
-4. กด import ไฟล์ thanthip_pos.sql จาก directory 
+## 🚀 Installation Guide
 
-5. ตั้งค่า charactor set เป็น UTF-8 หรือ utf8_general_ci
+> ⚠️ Skip Step 1 if you already have the project files.
 
-6. กด Go จากนั้นเป็นการเสร็จสิ้นด้านการติดตั้ง
+### 1. Clone the Project
 
-หมายเหตุ
-
-หากติดตั้ง ภายใน เครื่อง MacOS
-ต้อง Allow premission โดยใช้คำสั่ง
-
-- chmod 777 {root_directory}/pos/client/assets/images 
-
-video present : https://youtu.be/CF1Lkh3JpuQ
-video testing : https://youtu.be/CGzwezAKZJU
-
-
+```bash
+git clone https://gitlab.com/slotty.dev/pos.git
